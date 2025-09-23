@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .image-test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .image-test h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .image-test img {
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>张家界图片测试</h1>
+        <p>测试本地图片是否能正确加载</p>
+        
+        <div class="image-test">
+            <h3>袁家界图片</h3>
+            <img src="image/袁家界.jpg" alt="袁家界" onload="showSuccess(this)" onerror="showError(this)">
+            <img src="image/袁家界2.jpg" alt="袁家界2" onload="showSuccess(this)" onerror="showError(this)">
+            <img src="image/袁家界3.jpg" alt="袁家界3" onload="showSuccess(this)" onerror="showError(this)">
+        </div>
+        
+        <div class="image-test">
+            <h3>天子山图片</h3>
+            <img src="image/天子山1.jpg" alt="天子山1" onload="showSuccess(this)" onerror="showError(this)">
+            <img src="image/天子山2.jpg" alt="天子山2" onload="showSuccess(this)" onerror="showError(this)">
+        </div>
+        
+        <div class="image-test">
+            <h3>十里画廊图片</h3>
+            <img src="image/十里画廊1.jpg" alt="十里画廊1" onload="showSuccess(this)" onerror="showError(this)">
+        </div>
+    </div>
+
+    <script>
+        function showSuccess(img) {
+            const status = document.createElement('div');
+            status.className = 'success';
+            status.textContent = `✓ ${img.alt} 加载成功`;
+            img.parentNode.appendChild(status);
+        }
+        
+        function showError(img) {
+            const status = document.createElement('div');
+            status.className = 'error';
+            status.textContent = `✗ ${img.alt} 加载失败 - 路径: ${img.src}`;
+            img.parentNode.appendChild(status);
+        }
+    </script>
+</body>
+</html>

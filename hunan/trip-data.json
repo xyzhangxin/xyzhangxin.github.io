@@ -1,0 +1,905 @@
+{
+  "tripId": "zjj-250830",
+  "tripInfo": {
+    "title": "张家界7天6晚家庭悠闲之旅",
+    "travelers": ["您(30)", "妻子", "父亲(59)", "母亲(56)", "岳父", "岳母", "女儿(5)"],
+    "dates": "8月30日 - 9月5日",
+    "concept": "不赶路，以舒适为先；老小同行，强度有张有弛；该打车就打车、该排队就错峰"
+  },
+  "days": [
+    {
+      "date": "2025-08-30",
+      "title": "Day 1 高铁穿越，初见边城",
+      "subtitle": "苏州→怀化→凤凰",
+      "accommodation": {
+        "name": "凤凰古城·沱江镇民俗园",
+        "address": "沱江镇民俗园A6栋3层306",
+        "tel": "",
+        "doorCode": "5931376",
+        "lat": null,
+        "lng": null
+      },
+      "items": [
+        {
+          "time": "06:40",
+          "type": "transport",
+          "mode": "car",
+          "title": "专车出发",
+          "description": "苏州吴中区悦景水湾→苏州北站（滴滴6座专车，约170元）",
+          "actions": ["didi"],
+          "address": {
+            "name": "苏州北站",
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "time": "07:30",
+          "type": "transport",
+          "mode": "train",
+          "title": "G355 苏州北→怀化南",
+          "description": "途中休息/补觉，午餐可在车上简餐",
+          "card": {
+            "trainNo": "G355",
+            "depart": {"time": "07:30", "station": "苏州北"},
+            "arrive": {"time": "13:42", "station": "怀化南"},
+            "seats": ["15车17ABC", "15车18ABC"],
+            "duration": "6小时12分",
+            "gate": "2B",
+            "platform": ""
+          }
+        },
+        {
+          "time": "14:47",
+          "type": "transport",
+          "mode": "train",
+          "title": "G6370 怀化南→凤凰古城站",
+          "description": "女儿免票",
+          "card": {
+            "trainNo": "G6370",
+            "depart": {"time": "14:47", "station": "怀化南"},
+            "arrive": {"time": "15:12", "station": "凤凰古城站"},
+            "duration": "25分钟",
+            "seats": ["16车ABCD", "15车DF"],
+            "gate": "1",
+            "platform": ""
+          }
+        },
+        {
+          "time": "15:15",
+          "type": "transport",
+          "mode": "car",
+          "title": "打车到民宿",
+          "description": "凤凰古城站→沱江镇民俗园A6栋3层306（约50元）",
+          "actions": ["didi", "amap"],
+          "address": {
+            "name": "沱江镇民俗园A6栋3层306",
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "time": "15:45",
+          "type": "note",
+          "title": "办理入住，充分休息",
+          "description": "给长辈和孩子充分恢复时间",
+          "tips": {
+            "type": "important",
+            "title": "重要提醒",
+            "content": "入住后先熟悉房间设施，检查热水、WiFi等"
+          }
+        },
+        {
+          "time": "18:00",
+          "type": "meal",
+          "title": "晚餐·湘西菜",
+          "description": "血粑鸭、沱江小鱼虾；清淡口可点米粉/米豆腐",
+          "tips": {
+            "type": "dining",
+            "title": "餐饮建议",
+            "content": "选择当地特色菜，但考虑老人和孩子口味，避免过辣"
+          }
+        },
+        {
+          "time": "19:30",
+          "type": "poi",
+          "title": "沱江夜景漫步",
+          "imageKeyword": "Fenghuang night",
+          "description": "沿沱江石板路熟悉环境，感受吊脚楼灯火",
+          "actions": ["amap"],
+          "address": {
+            "name": "虹桥",
+            "lat": null,
+            "lng": null
+          },
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "夜景必拍位：虹桥/雪桥上拍两岸灯火与水面倒影；18mm广角、F8-F11、低ISO、脚架/靠桥栏稳定长曝"
+          },
+          "warnings": {
+            "type": "safety",
+            "title": "重要提醒/避坑",
+            "content": "石板路湿滑，老人/孩子穿防滑鞋；夜间注意保暖与保管随身物品"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2025-08-31",
+      "title": "Day 2 晨雾泛舟，古城漫步",
+      "subtitle": "凤凰古城全天",
+      "accommodation": {
+        "name": "凤凰古城·沱江镇民俗园",
+        "address": "沱江镇民俗园A6栋3层306",
+        "tel": "",
+        "doorCode": "5931376",
+        "lat": null,
+        "lng": null
+      },
+      "items": [
+        {
+          "time": "06:00",
+          "type": "photo",
+          "title": "清晨机位·沱江晨雾",
+          "description": "碰碰运气（最佳时段6:00-7:00）",
+          "actions": ["amap"],
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "逆光薄雾出层次，建议点测光锁定高光；人物背光轮廓光很美"
+          }
+        },
+        {
+          "time": "08:00",
+          "type": "poi",
+          "title": "核心项目·沱江泛舟",
+          "imageKeyword": "Fenghuang Ancient Town boat",
+          "description": "优先坐船头/尾位，视野无遮挡",
+          "actions": ["amap"],
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "快门优先 ≥1/250s 防抖，船上抓拍家人互动；用长焦压缩两岸吊脚楼"
+          }
+        },
+        {
+          "time": "10:00",
+          "type": "poi",
+          "title": "俯瞰补充·东门城楼/虹桥艺术楼",
+          "imageKeyword": "Fenghuang Ancient Town roof",
+          "description": "二选一或都去（就近、少爬梯）",
+          "actions": ["amap"],
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "俯瞰古城层次，用广角取景，前景栏杆/窗框作框取景"
+          }
+        },
+        {
+          "time": "12:00",
+          "type": "meal",
+          "title": "午餐·古城口碑店",
+          "description": "苗家酸汤鱼、腊味拼盘；避开江景位溢价",
+          "tips": {
+            "type": "dining",
+            "title": "餐饮建议",
+            "content": "选择性价比高的本地餐厅，避开景区内高价位"
+          }
+        },
+        {
+          "time": "13:30",
+          "type": "note",
+          "title": "下午茶时光",
+          "description": "江边茶馆/咖啡馆放松，老人孩子休息、父母轮流带娃"
+        },
+        {
+          "time": "15:00",
+          "type": "photo",
+          "title": "凤凰古城摄影参考",
+          "description": "精选凤凰古城拍照参考，提前了解最佳机位和构图",
+          "photoReference": {
+            "title": "凤凰古城拍照参考",
+            "description": "汇集小红书摄影师精选作品，包含千年古城风貌、雾锁沱江夜景、打卡拍照技巧等"
+          },
+          "tips": {
+            "type": "photo",
+            "title": "拍摄参考",
+            "content": "参考照片展示了不同时间段、不同角度的凤凰古城美景，可作为实地拍摄的构图和机位参考"
+          }
+        },
+        {
+          "time": "16:00",
+          "type": "poi",
+          "title": "弹性文化·沈从文故居",
+          "imageKeyword": "Chinese old house",
+          "description": "路过有兴致则入（约15-30分钟），不强求",
+          "actions": ["amap"]
+        },
+        {
+          "time": "18:00",
+          "type": "meal",
+          "title": "晚餐·小吃组合",
+          "description": "姜糖、炒螺、烤串、小锅土豆（量从简）",
+          "tips": {
+            "type": "play",
+            "title": "游玩建议/不容错过",
+            "content": "租民俗服装拍人像可选侧光/背光位；提前确认是否含妆造与取景师"
+          },
+          "warnings": {
+            "type": "safety",
+            "title": "重要提醒/避坑",
+            "content": "个别拍照店有'加片/选片'隐形费用，事前问清；贵重物品不离手"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2025-09-01",
+      "title": "Day 3 高铁接力，移步武陵源",
+      "subtitle": "凤凰→张家界西→武陵源",
+      "accommodation": {
+        "name": "云几木民宿",
+        "address": "百溪沟小区1栋-2单元-603",
+        "tel": "17711745177",
+        "doorCode": "264243",
+        "lat": null,
+        "lng": null
+      },
+      "items": [
+        {
+          "time": "08:00",
+          "type": "meal",
+          "title": "早餐",
+          "description": "古城简单用餐"
+        },
+        {
+          "time": "11:30",
+          "type": "transport",
+          "mode": "car",
+          "title": "出发到火车站",
+          "description": "民宿→凤凰古城站（专车约30分钟，50元）",
+          "actions": ["didi"],
+          "address": {
+            "name": "凤凰古城站",
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "time": "12:43",
+          "type": "transport",
+          "mode": "train",
+          "title": "凤凰古城→张家界西",
+          "description": "93元/人",
+          "card": {
+            "trainNo": "高铁",
+            "depart": {"time": "12:43", "station": "凤凰古城"},
+            "arrive": {"time": "13:42", "station": "张家界西"},
+            "duration": "59分钟",
+            "seat": "二等座",
+            "gate": "",
+            "platform": ""
+          }
+        },
+        {
+          "time": "13:50",
+          "type": "transport",
+          "mode": "car",
+          "title": "打车到民宿",
+          "description": "张家界西→武陵源民宿（约40分钟，150元）",
+          "actions": ["didi", "amap"],
+          "address": {
+            "name": "武陵源区百溪沟小区1栋二单元",
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "time": "15:00",
+          "type": "note",
+          "title": "休整",
+          "description": "午休与行李整理，为核心景区做准备"
+        },
+        {
+          "time": "18:00",
+          "type": "meal",
+          "title": "晚餐·土家三下锅",
+          "description": "腊肉/笋干/豆腐组合，清淡可选番茄菌菇底",
+          "tips": {
+            "type": "play",
+            "title": "游玩建议/不容错过",
+            "content": "到镇上先补给：矿泉水/运动饮料/葡萄糖巧克力/创可贴/雨披，为Day4-5做准备"
+          },
+          "warnings": {
+            "type": "safety",
+            "title": "重要提醒/避坑",
+            "content": "张家界西站出站勿随意跟'拉客'，走官方出租/网约车；明早入园二维码/证件先截屏"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2025-09-02",
+      "title": "Day 4 \"阿凡达\"之巅·张家界国家森林公园",
+      "subtitle": "袁家界/天子山",
+      "accommodation": {
+        "name": "云几木民宿",
+        "address": "百溪沟小区1栋-2单元-603",
+        "tel": "17711745177",
+        "doorCode": "264243",
+        "lat": null,
+        "lng": null
+      },
+      "items": [
+        {
+          "time": "08:00",
+          "type": "meal",
+          "title": "早餐",
+          "description": "民宿附近吃饱（鸡蛋+主食+水果）"
+        },
+        {
+          "time": "08:45",
+          "type": "transport",
+          "mode": "car",
+          "title": "出发到景区",
+          "description": "打车→武陵源标志门（门票站）约15分钟",
+          "actions": ["didi", "amap"],
+          "address": {
+            "name": "武陵源标志门",
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "time": "09:00",
+          "type": "transport",
+          "mode": "bus",
+          "title": "入园乘环保车",
+          "description": "武陵源标志门→百龙天梯下站（约20分钟车程）",
+          "tips": {
+            "type": "transport",
+            "title": "环保车指南",
+            "content": "景区内免费环保车，凭门票乘坐；车次频繁，约5-10分钟一班；建议坐右侧观景"
+          }
+        },
+        {
+          "time": "09:30",
+          "type": "transport",
+          "mode": "elevator",
+          "title": "百龙天梯上行",
+          "description": "世界最高户外电梯，326米垂直高度，2分钟直达袁家界",
+          "tips": {
+            "type": "experience",
+            "title": "体验建议",
+            "content": "建议提前网上购票避免排队；选择靠玻璃侧位置观景；上升过程中可拍摄峡谷全貌"
+          },
+          "warnings": {
+            "type": "safety",
+            "title": "注意事项",
+            "content": "恐高者可闭眼或看侧面；老人孩子注意安全，抓好扶手"
+          }
+        },
+        {
+          "time": "09:50",
+          "type": "poi",
+          "title": "袁家界核心景点游览",
+          "description": "按顺序游览：迷魂台→天下第一桥→哈利路亚山（阿凡达悬浮山原型）→后花园",
+          "actions": ["amap"],
+          "imageKeyword": "Yuanjiajie Zhangjiajie",
+          "images": ["袁家界.jpg", "袁家界2.jpg", "袁家界3.jpg"],
+          "photoReference": {
+            "title": "袁家界实景照片",
+            "description": "展示袁家界核心景点的壮丽景色，包括迷魂台全景、天下第一桥奇观、哈利路亚山（阿凡达悬浮山原型）等标志性景观"
+          },
+          "details": {
+            "attractions": [
+              {
+                "name": "迷魂台",
+                "description": "袁家界最佳观景台，可俯瞰整个张家界峰林地貌",
+                "walkTime": "5分钟",
+                "features": "360度全景观景，是拍摄日出日落的绝佳位置"
+              },
+              {
+                "name": "天下第一桥",
+                "description": "天然石桥，跨度约25米，桥面宽仅3米",
+                "walkTime": "10分钟",
+                "features": "世界上最高的天然石桥，桥下深不见底"
+              },
+              {
+                "name": "哈利路亚山",
+                "description": "电影《阿凡达》悬浮山原型，原名南天一柱",
+                "walkTime": "15分钟",
+                "features": "高达150米的独立石柱，四周云雾缭绕时最为壮观"
+              },
+              {
+                "name": "后花园",
+                "description": "天然观景平台，可远眺天子山",
+                "walkTime": "10分钟",
+                "features": "视野开阔，是观赏峰林全貌的理想位置"
+              }
+            ]
+          },
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "多用100-300mm长焦切割峰林层次；等云雾穿行时拍摄更有仙境感；用远中景组合压缩空间层次；人像建议在观景台边缘拍摄，背景更纯净"
+          },
+          "warnings": {
+            "type": "safety",
+            "title": "安全提醒",
+            "content": "观景台边缘有护栏但仍需小心；雾天能见度低，注意脚下安全；不要翻越护栏拍照"
+          }
+        },
+        {
+          "time": "12:00",
+          "type": "meal",
+          "title": "午餐",
+          "description": "袁家界山顶餐厅：肯德基/麦当劳或土家风味餐厅",
+          "tips": {
+            "type": "dining",
+            "title": "用餐建议",
+            "content": "山顶餐饮价格较高但选择丰富；建议快餐节省时间；也可自带干粮和水"
+          }
+        },
+        {
+          "time": "13:00",
+          "type": "transport",
+          "mode": "bus",
+          "title": "环保车前往天子山",
+          "description": "袁家界→天子山索道上站（约15分钟车程）",
+          "tips": {
+            "type": "transport",
+            "title": "路线说明",
+            "content": "山顶环保车连接各景点，班次频繁；沿途可欣赏峰林风光"
+          }
+        },
+        {
+          "time": "13:20",
+          "type": "poi",
+          "title": "天子山景区游览",
+          "description": "按顺序游览：贺龙公园→云青岩观景台→御笔峰→仙女散花→天子阁",
+          "actions": ["amap"],
+          "imageKeyword": "Tianzishan Zhangjiajie",
+          "images": ["天子山1.jpg", "天子山2.jpg"],
+          "photoReference": {
+            "title": "天子山实景照片",
+            "description": "展示天子山景区的精华景点，包括贺龙公园铜像、御笔峰奇观、云青岩观景台等著名景观的真实面貌"
+          },
+          "details": {
+            "attractions": [
+              {
+                "name": "贺龙公园",
+                "description": "纪念贺龙元帅的主题公园，有贺龙铜像",
+                "walkTime": "20分钟",
+                "features": "铜像高6.5米，是天子山标志性景点；可俯瞰张家界全貌"
+              },
+              {
+                "name": "云青岩观景台",
+                "description": "天子山最佳观景点之一",
+                "walkTime": "10分钟",
+                "features": "视野最为开阔，可看到上百座石峰"
+              },
+              {
+                "name": "御笔峰",
+                "description": "几座细长石峰并排而立，形似毛笔",
+                "walkTime": "15分钟",
+                "features": "天子山最著名景点，传说是向王天子的御用毛笔"
+              },
+              {
+                "name": "仙女散花",
+                "description": "石峰形似仙女撒花的姿态",
+                "walkTime": "10分钟",
+                "features": "造型优美，是摄影热门景点"
+              },
+              {
+                "name": "天子阁",
+                "description": "仿古建筑观景楼，可登高远眺",
+                "walkTime": "15分钟",
+                "features": "360度观景，是天子山最高观景点"
+              }
+            ]
+          },
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "下午逆光层次更强，适合拍摄剪影效果；观景台建议广角+长焦双机位；御笔峰最佳拍摄时间为下午3-4点"
+          }
+        },
+        {
+          "time": "15:30",
+          "type": "transport",
+          "mode": "cablecar",
+          "title": "天子山索道下山",
+          "description": "天子山索道上站→下站，约8分钟；然后乘环保车出园",
+          "tips": {
+            "type": "transport",
+            "title": "下山路线",
+            "content": "索道下山比步行节省体力；下站有环保车直达武陵源标志门"
+          }
+        },
+        {
+          "time": "16:00",
+          "type": "transport",
+          "mode": "bus",
+          "title": "环保车出园",
+          "description": "天子山索道下站→武陵源标志门（约25分钟）",
+          "tips": {
+            "type": "experience",
+            "title": "游览总结",
+            "content": "完整体验张家界核心精华：百龙天梯+袁家界+天子山，涵盖最著名的阿凡达取景地和御笔峰等经典景点"
+          }
+        },
+        {
+          "time": "17:30",
+          "type": "meal",
+          "title": "晚餐",
+          "description": "回镇悠闲加餐，热汤/砂锅恢复体力",
+          "tips": {
+            "type": "play",
+            "title": "游玩建议/不容错过",
+            "content": "经典动线：武陵源标志门→环保车→百龙天梯→袁家界（迷魂台、天下第一桥、哈利路亚山）→环保车→天子山（贺龙公园、御笔峰、仙女散花）→索道下山。全程约7-8小时，建议穿舒适防滑鞋，携带充电宝和雨具。"
+          },
+          "warnings": {
+            "type": "safety",
+            "title": "重要提醒/避坑",
+            "content": "百龙天梯和天子山索道高峰期可能排队1-2小时，建议提前网购票并错峰游览；关注环保车末班时间（约18:00）；山上天气多变，备雨披/防滑鞋；观景台边缘注意安全；猴群出没勿喂食；手机信号不稳定，重要信息提前截屏保存。"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2025-09-03",
+      "title": "Day 5 画廊溪语，魅力湘西",
+      "subtitle": "十里画廊/魅力湘西演出",
+      "accommodation": {
+        "name": "云几木民宿",
+        "address": "百溪沟小区1栋-2单元-603",
+        "tel": "17711745177",
+        "doorCode": "264243",
+        "lat": null,
+        "lng": null
+      },
+      "items": [
+        {
+          "time": "09:30",
+          "type": "meal",
+          "title": "早餐",
+          "description": "民宿附近用餐，晚出发保证休息"
+        },
+        {
+          "time": "10:00",
+          "type": "transport",
+          "mode": "car",
+          "title": "出发",
+          "description": "打车→武陵源门票站",
+          "actions": ["didi", "amap"]
+        },
+        {
+          "time": "10:30",
+          "type": "poi",
+          "title": "十里画廊",
+          "description": "环保车入→小火车往返最省力，沿线观'寿星迎宾、采药老人'等奇峰",
+          "actions": ["amap"],
+          "imageKeyword": "Shili Gallery Zhangjiajie",
+          "images": ["十里画廊1.jpg"],
+          "photoReference": {
+            "title": "十里画廊实景照片",
+            "description": "展示十里画廊沿线的奇峰异石，包括寿星迎宾、采药老人等著名石峰造型，体现张家界独特的峰林地貌"
+          },
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "小火车抓拍用较高快门；沿线可用长焦抽取典型石峰"
+          }
+        },
+        {
+          "time": "12:30",
+          "type": "meal",
+          "title": "午餐",
+          "description": "回镇本地馆子，一荤一素一汤，控制油盐"
+        },
+        {
+          "time": "14:00",
+          "type": "note",
+          "title": "休整或轻徒步",
+          "description": "回民宿午休；若精力可，于16:00后至金鞭溪入口段漫步1小时",
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "金鞭溪林荫透光，低机位取溪水作前景，慢门出丝滑水面（注意防潮）"
+          }
+        },
+        {
+          "time": "17:30",
+          "type": "meal",
+          "title": "晚餐",
+          "description": "魅力湘西大剧院附近先吃，错峰入场"
+        },
+        {
+          "time": "19:00",
+          "type": "show",
+          "title": "《魅力湘西》观演",
+          "description": "建议提前入场；演出中勿用闪光灯",
+          "actions": ["amap"],
+          "warnings": {
+            "type": "safety",
+            "title": "重要提醒/避坑",
+            "content": "提前确认电子票与取票点；雨天剧场空调偏冷，带薄外套"
+          }
+        },
+        {
+          "time": "21:00",
+          "type": "transport",
+          "mode": "car",
+          "title": "返程",
+          "description": "打车回民宿休息",
+          "actions": ["didi"]
+        }
+      ]
+    },
+    {
+      "date": "2025-09-04",
+      "title": "Day 6 天门洞开，奔赴星城",
+      "subtitle": "武陵源→天门山→张家界西→长沙",
+      "tickets": [
+        { "name": "张鑫", "file": "张鑫.png" },
+        { "name": "查青莲", "file": "查青莲.png" },
+        { "name": "满小丁", "file": "满小丁.png" },
+        { "name": "满晓雯", "file": "满晓雯.png" },
+        { "name": "金根凤", "file": "金根凤.png" }
+      ],
+      "accommodation": {
+        "name": "SKIL世纪天际 高空酒店（长沙五一广场IFS国金中心点）",
+        "address": "长沙市芙蓉区五一大道389号国金中心",
+        "tel": "",
+        "lat": null,
+        "lng": null
+      },
+      "items": [
+        {
+          "time": "07:30",
+          "type": "meal",
+          "title": "早餐",
+          "description": "武陵源快速用餐，准备出发"
+        },
+        {
+          "time": "08:00",
+          "type": "note",
+          "title": "退房装车",
+          "description": "行李全部装车，租车自驾前往天门山"
+        },
+        {
+          "time": "08:30",
+          "type": "transport",
+          "mode": "car",
+          "title": "自驾前往天门山",
+          "description": "武陵源→天门山索道站（约30分钟车程）",
+          "actions": ["amap"]
+        },
+        {
+          "time": "09:00",
+          "type": "transport",
+          "mode": "cablecar",
+          "title": "索道上山",
+          "description": "A线索道上山，长距离缆车（约30分钟）",
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "选干净车窗侧；俯拍'99道弯通天大道'全貌"
+          }
+        },
+        {
+          "time": "09:30",
+          "type": "poi",
+          "title": "东线栈道游览",
+          "description": "凌空栈道→珙桐园→盘龙崖玻璃栈道（5元门票）→俯视天门洞",
+          "actions": ["amap"],
+          "imageKeyword": "Tianmen Mountain Zhangjiajie",
+          "images": ["天门山1.jpg", "天门山2.jpg", "天门山3.jpg", "天门山4.jpg"],
+          "photoReference": {
+            "title": "天门山实景照片",
+            "description": "展示天门山顶的壮丽景色，包括惊险刺激的玻璃栈道、鬼谷栈道以及99道弯通天大道全貌"
+          },
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "玻璃栈道广角仰拍夸张高差；盘龙崖可拍摄到盘山公路全貌；拍家人紧张/兴奋表情更有故事性"
+          }
+        },
+        {
+          "time": "11:30",
+          "type": "meal",
+          "title": "山顶简餐",
+          "description": "便利店快餐或自带干粮，节省时间"
+        },
+        {
+          "time": "12:00",
+          "type": "note",
+          "title": "穿山自动扶梯→天门洞",
+          "description": "7段穿山扶梯下行，或选择999台阶徒步（32元扶梯费）",
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "天门洞下仰拍广角展现天门洞的壮观；福源栈道是拍摄天门洞的最佳位置"
+          }
+        },
+        {
+          "time": "12:30",
+          "type": "transport",
+          "mode": "bus",
+          "title": "快线索道下山",
+          "description": "天门洞广场→快线索道下山→福源栈道→天门山停车处→环保车→A线索道入口"
+        },
+        {
+          "time": "13:00",
+          "type": "transport",
+          "mode": "car",
+          "title": "自驾前往张家界西站",
+          "description": "天门山→张家界西站一嗨租车还车（约40分钟）",
+          "actions": ["amap"]
+        },
+        {
+          "time": "13:40",
+          "type": "note",
+          "title": "还车办理",
+          "description": "张家界西站一嗨租车还车，办理相关手续，进站候车"
+        },
+        {
+          "time": "16:00",
+          "type": "transport",
+          "mode": "train",
+          "title": "C7741 张家界西→长沙站",
+          "description": "",
+          "card": {
+            "trainNo": "C7741",
+            "depart": {"time": "16:00", "station": "张家界西"},
+            "arrive": {"time": "17:55", "station": "长沙站"},
+            "duration": "1小时55分",
+            "seat": "二等座",
+            "gate": "",
+            "platform": ""
+          }
+        },
+        {
+          "time": "18:20",
+          "type": "transport",
+          "mode": "car",
+          "title": "取车",
+          "description": "长沙站一嗨租车取车，办理租车手续",
+          "actions": ["amap"]
+        },
+        {
+          "time": "19:00",
+          "type": "meal",
+          "title": "晚餐",
+          "description": "开车前往坡子街/IFS/太平老街周边用餐（臭豆腐、口味虾、糖油粑粑等）",
+          "actions": ["amap"]
+        },
+        {
+          "time": "20:30",
+          "type": "transport",
+          "mode": "car",
+          "title": "前往酒店",
+          "description": "开车前往SKIL世纪天际高空酒店办理入住",
+          "actions": ["amap"],
+          "address": {
+            "name": "SKIL世纪天际 高空酒店（长沙五一广场IFS国金中心点）",
+            "lat": null,
+            "lng": null
+          }
+        },
+        {
+          "time": "21:00",
+          "type": "note",
+          "title": "入住休息",
+          "description": "办理入住手续，准备明日返程",
+          "warnings": {
+            "type": "safety",
+            "title": "重要提醒/避坑",
+            "content": "天门山高峰期索道/扶梯可能排队；务必在14:40前结束游览；玻璃栈道需鞋套，雨天可能停开；山顶风大，备外套；租车还车注意检查车况和油量"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2025-09-05",
+      "title": "Day 7 星城漫游，包车返程",
+      "subtitle": "长沙→机场",
+      "accommodation": null,
+      "items": [
+        {
+          "time": "09:30",
+          "type": "note",
+          "title": "退房装车",
+          "description": "行李全程跟车，无需回酒店"
+        },
+        {
+          "time": "10:00",
+          "type": "transport",
+          "mode": "car",
+          "title": "出发",
+          "description": "酒店→橘子洲（包车约300元/全天，含送机）",
+          "actions": ["amap"]
+        },
+        {
+          "time": "10:30",
+          "type": "poi",
+          "title": "橘子洲游览",
+          "description": "建议乘观光车环线、雕像广场合影",
+          "actions": ["amap"],
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "人像用中长焦，背靠江景或雕像，注意人物与背景分离"
+          }
+        },
+        {
+          "time": "12:30",
+          "type": "poi",
+          "title": "太平老街",
+          "description": "边逛边吃：火宫殿小吃、文和友臭豆腐、糖油粑粑、茶颜悦色等；伴手礼集中采购",
+          "actions": ["amap"],
+          "tips": {
+            "type": "photo",
+            "title": "摄影建议",
+            "content": "街拍抓拍生活感；注意避让人群，选转角、拱门、店招作框景"
+          }
+        },
+        {
+          "time": "15:45",
+          "type": "transport",
+          "mode": "car",
+          "title": "出发",
+          "description": "太平老街→长沙黄花机场（约45-60分钟）"
+        },
+        {
+          "time": "16:45",
+          "type": "note",
+          "title": "到达机场",
+          "description": "办理值机、托运，从容候机"
+        },
+        {
+          "time": "18:35",
+          "type": "transport",
+          "mode": "flight",
+          "title": "MU2742 长沙→无锡硕放",
+          "description": "",
+          "card": {
+            "flightNo": "MU2742",
+            "depart": {"time": "18:35", "airport": "长沙黄花机场"},
+            "arrive": {"time": "20:25", "airport": "无锡硕放机场"},
+            "duration": "1小时50分",
+            "terminal": "",
+            "gate": "",
+            "seat": "46A张云舒, 45C查青莲, 45B满晓雯, 45A张鑫, 46C满小丁, 46B金根凤",
+            "pnr": ""
+          },
+          "warnings": {
+            "type": "safety",
+            "title": "重要提醒/避坑",
+            "content": "太平老街人流密集，看护老人和孩子，财物贴身；如遇周末，尽量错峰"
+          }
+        }
+      ]
+    }
+  ],
+  "generalTips": [
+    {
+      "category": "老人/孩子优先",
+      "content": "多喝水、勤休息；备创可贴、碘伏棉签、晕车贴、儿童零食"
+    },
+    {
+      "category": "山区信号不稳",
+      "content": "入园二维码/车票/酒店单据提前截屏；充电宝上限内带齐"
+    },
+    {
+      "category": "天气多变",
+      "content": "雨披/防滑鞋/轻薄外套；镜头布、保鲜袋防潮"
+    },
+    {
+      "category": "取景与人像",
+      "content": "逆光/侧光＞顶光；人物与背景'分离'更突出；尝试前景遮挡增强层次"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "groups": [
+    {
+      "id": "trainTickets",
+      "title": "🚄 高铁票务",
+      "items": [
+        {
+          "id": "train_g355",
+          "title": "G355 苏州北→怀化南",
+          "desc": "乘车日期: 8月30日<br><strong>已购票: 15车17ABC, 18ABC (检票口: 2B)</strong>",
+          "link": "https://www.12306.cn",
+          "done": true
+        },
+        {
+          "id": "train_g6370",
+          "title": "G6370 怀化南→凤凰古城",
+          "desc": "乘车日期: 8月30日<br><strong>已购票: 16车ABCD, 15车DF (检票口: 1)</strong>",
+          "link": "https://www.12306.cn",
+          "done": true
+        },
+        {
+          "id": "train_phoenix_zjj",
+          "title": "凤凰古城→张家界西",
+          "desc": "乘车日期: 9月1日<br>开售时间: <strong>8月18日 10:00</strong>",
+          "link": "https://www.12306.cn",
+          "done": false,
+          "departDate": "2024-09-01",
+          "saleDate": "2024-08-18",
+          "saleTime": "10:00",
+          "stationName": "凤凰古城"
+        },
+        {
+          "id": "train_c7741",
+          "title": "C7741 张家界西→长沙",
+          "desc": "乘车日期: 9月4日<br>开售时间: <strong>8月21日 16:00</strong>",
+          "link": "https://www.12306.cn",
+          "done": false,
+          "departDate": "2024-09-04",
+          "saleDate": "2024-08-21",
+          "saleTime": "16:00",
+          "stationName": "张家界西"
+        }
+      ]
+    },
+    {
+      "id": "flightCheckin",
+      "title": "✈️ 机票值机",
+      "items": [
+        {
+          "id": "flight_mu2742",
+          "title": "MU2742 长沙→无锡",
+          "desc": "航班日期: 9月5日 18:35<br>值机开放: <strong>9月3日 18:35</strong> (起飞前48小时)",
+          "link": "https://www.ceair.com",
+          "done": false,
+          "flightDate": "2024-09-05",
+          "checkinTime": "2024-09-03T18:35:00"
+        }
+      ]
+    },
+    {
+      "id": "tickets",
+      "title": "🎫 门票预订",
+      "items": [
+        {
+          "id": "phoenix_ticket",
+          "title": "凤凰古城套票",
+          "desc": "含沱江泛舟，90元/人×6成人 = 540元",
+          "done": false
+        },
+        {
+          "id": "zjj_forest_ticket",
+          "title": "张家界国家森林公园门票",
+          "desc": "227元/人×6成人 = 1362元，含环保车",
+          "done": false
+        },
+        {
+          "id": "bailong_elevator",
+          "title": "百龙天梯",
+          "desc": "72元/人×6成人 = 432元",
+          "done": false
+        },
+        {
+          "id": "tianzi_cablecar",
+          "title": "天子山索道",
+          "desc": "79元/人×6成人 = 474元",
+          "done": false
+        },
+        {
+          "id": "shili_gallery",
+          "title": "十里画廊小火车",
+          "desc": "50元/人×6成人 = 300元",
+          "done": false
+        },
+        {
+          "id": "tianmen_ticket",
+          "title": "天门山门票 (A线)",
+          "desc": "200元/人×6成人 = 1200元",
+          "done": false
+        },
+        {
+          "id": "meiliweixi_show",
+          "title": "《魅力湘西》演出票",
+          "desc": "普通VIP 100元/人×6成人 = 600元",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "carCharter",
+      "title": "🚗 包车安排",
+      "items": [
+        {
+          "id": "day6_charter",
+          "title": "Day 6 包车",
+          "desc": "武陵源→天门山→张家界西站<br>约210元<br><strong>需确认：司机姓名/电话/车牌</strong>",
+          "done": false
+        },
+        {
+          "id": "day7_charter",
+          "title": "Day 7 包车",
+          "desc": "长沙市区及送机<br>约300元/全天<br><strong>需确认：司机姓名/电话/车牌</strong>",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "accommodation",
+      "title": "🏨 住宿预订",
+      "items": [
+        {
+          "id": "phoenix_hotel",
+          "title": "凤凰古城民宿 (2晚)",
+          "desc": "沱江镇民俗园A6栋3层306<br>共计794元",
+          "done": true
+        },
+        {
+          "id": "wulingyuan_hotel",
+          "title": "武陵源民宿 (3晚)",
+          "desc": "百溪沟小区1栋-2单元5层503<br>共计1155元",
+          "done": true
+        },
+        {
+          "id": "changsha_hotel",
+          "title": "长沙市区酒店 (1晚)",
+          "desc": "五一广场/IFS附近<br><strong>待预定</strong>",
+          "done": false
+        }
+      ]
+    },
+    {
+      "id": "packing",
+      "title": "🎒 行前准备",
+      "items": [
+        {
+          "id": "documents",
+          "title": "证件类",
+          "desc": "身份证、驾驶证等个人证件",
+          "done": false
+        },
+        {
+          "id": "cash_cards",
+          "title": "现金银行卡",
+          "desc": "少量现金备用",
+          "done": false
+        },
+        {
+          "id": "electronics",
+          "title": "电子设备",
+          "desc": "充电宝、数据线、相机装备",
+          "done": false
+        },
+        {
+          "id": "weather_gear",
+          "title": "天气用品",
+          "desc": "雨披、防滑鞋、防晒霜、太阳镜、轻薄外套",
+          "done": false
+        },
+        {
+          "id": "medical_supplies",
+          "title": "医疗用品",
+          "desc": "常用药品、创可贴、晕车药、碘伏棉签",
+          "done": false
+        },
+        {
+          "id": "child_supplies",
+          "title": "儿童专用",
+          "desc": "儿童零食、玩具、药品",
+          "done": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张家界7天6晚家庭悠闲之旅</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #f5f7fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        /* Header 样式 */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 16px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-title {
+            display: flex;
+            flex-direction: column;
+            margin-right: 16px;
+        }
+
+        .header-title h1 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .header-title span {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .date-selector {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .date-selector:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .date-selector option {
+            background: #4c51bf;
+            color: white;
+            padding: 8px 12px;
+        }
+
+        .date-selector option:hover {
+            background: #667eea;
+        }
+
+        .current-time-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .current-time-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .header-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .todo-badge {
+            background: #ff4444;
+            color: white;
+            border-radius: 10px;
+            padding: 2px 6px;
+            font-size: 11px;
+            font-weight: bold;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            min-width: 18px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            padding-top: 90px;
+            padding-bottom: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 日程卡片 */
+        .day-section {
+            background: white;
+            margin: 20px 16px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .day-section:hover {
+            box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .day-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .day-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .day-date {
+            font-size: 14px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .day-date .separator {
+            opacity: 0.6;
+        }
+
+        .collapse-icon {
+            transition: transform 0.3s ease;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        .day-section.collapsed .collapse-icon {
+            transform: rotate(-90deg);
+        }
+
+        .day-content {
+            display: block;
+            padding: 0;
+        }
+
+        .day-section.collapsed .day-content {
+            display: none;
+        }
+
+        /* 时间线 */
+        .timeline {
+            position: relative;
+            padding: 20px 16px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 70px;
+            top: 30px;
+            bottom: 10px;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item.current .timeline-content {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.08) 0%, rgba(255, 152, 0, 0.08) 100%);
+            border-color: #ff4444;
+            box-shadow: 0 6px 20px rgba(255, 68, 68, 0.25);
+            transform: translateX(8px);
+            position: relative;
+        }
+        
+        .timeline-item.current .timeline-content::before {
+            content: '🔥 当前时段';
+            position: absolute;
+            top: -10px;
+            right: 12px;
+            background: linear-gradient(135deg, #ff4444 0%, #ff9800 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4);
+            animation: currentBadge 2s infinite;
+            z-index: 10;
+            white-space: nowrap;
+        }
+        
+        @keyframes currentBadge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes highlightCurrent {
+            0% { transform: translateX(8px); }
+            25% { transform: translateX(16px) scale(1.02); box-shadow: 0 8px 30px rgba(255, 68, 68, 0.4); }
+            50% { transform: translateX(8px); }
+            75% { transform: translateX(16px) scale(1.02); box-shadow: 0 8px 30px rgba(255, 68, 68, 0.4); }
+            100% { transform: translateX(8px); }
+        }
+
+        .timeline-time {
+            flex: 0 0 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6b7280;
+            text-align: right;
+            padding-right: 20px;
+            padding-top: 4px;
+            line-height: 24px;
+        }
+
+        .timeline-item.current .timeline-time {
+            color: #667eea;
+        }
+
+        .timeline-dot-wrapper {
+            position: relative;
+            flex: 0 0 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 4px;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item.current .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #ff4444;
+            border-color: #ff4444;
+            box-shadow: 0 0 0 4px rgba(255, 68, 68, 0.2);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { box-shadow: 0 0 0 4px rgba(255, 68, 68, 0.2); }
+            70% { box-shadow: 0 0 0 8px rgba(255, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 4px rgba(255, 68, 68, 0.2); }
+        }
+
+        .timeline-content-wrapper {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .timeline-content {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* 根据事件类型设置不同样式 */
+        .timeline-item[data-type="transport"] .timeline-dot {
+            border-color: #667eea;
+            background: #667eea;
+        }
+
+        .timeline-item[data-type="transport"] .timeline-content {
+            border-left: 3px solid #667eea;
+        }
+
+        .timeline-item[data-type="meal"] .timeline-dot {
+            border-color: #FF6B6B;
+            background: #FF6B6B;
+        }
+
+        .timeline-item[data-type="meal"] .timeline-content {
+            border-left: 3px solid #FF6B6B;
+        }
+
+        .timeline-item[data-type="poi"] .timeline-dot {
+            border-color: #4ECDC4;
+            background: #4ECDC4;
+        }
+
+        .timeline-item[data-type="poi"] .timeline-content {
+            border-left: 3px solid #4ECDC4;
+        }
+
+        .timeline-item[data-type="photo"] .timeline-dot {
+            border-color: #FFD93D;
+            background: #FFD93D;
+        }
+
+        .timeline-item[data-type="photo"] .timeline-content {
+            border-left: 3px solid #FFD93D;
+        }
+
+        .timeline-item[data-type="note"] .timeline-dot {
+            border-color: #6C5CE7;
+            background: #6C5CE7;
+        }
+
+        .timeline-item[data-type="note"] .timeline-content {
+            border-left: 3px solid #6C5CE7;
+        }
+
+        .timeline-item[data-type="show"] .timeline-dot {
+            border-color: #FD79A8;
+            background: #FD79A8;
+        }
+
+        .timeline-item[data-type="show"] .timeline-content {
+            border-left: 3px solid #FD79A8;
+        }
+
+        .timeline-item[data-type="accommodation"] .timeline-dot {
+            border-color: #f093fb;
+            background: #f093fb;
+        }
+
+        .timeline-item[data-type="accommodation"] .timeline-content {
+            border-left: 3px solid #f093fb;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.05) 0%, rgba(245, 87, 108, 0.05) 100%);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-icon {
+            font-size: 20px;
+        }
+
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* 景点图片 */
+        .poi-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        /* 交通卡片 */
+        .transport-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-top: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .transport-card.expanded {
+            border-color: #667eea;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+        }
+
+        .transport-header {
+            padding: 16px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f1f3 100%);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .transport-card.expanded .transport-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .transport-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .transport-type {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .transport-card.expanded .transport-type {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .transport-route {
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .transport-card.expanded .transport-route {
+            color: white;
+        }
+
+        .transport-time {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .transport-card.expanded .transport-time {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .expand-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.05);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .transport-card.expanded .expand-icon {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .transport-details {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .transport-card.expanded .transport-details {
+            padding: 16px;
+            max-height: 300px;
+        }
+
+        .transport-detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .transport-detail-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .transport-detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .transport-detail-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-right: 8px;
+            min-width: 60px;
+        }
+
+        .transport-detail-value {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .seat-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-right: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* 操作按钮 */
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .action-btn:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .action-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .action-btn.secondary {
+            background: white;
+            color: #667eea;
+            border: 1px solid #e0e0e0;
+        }
+
+        .action-btn.secondary:hover {
+            background: #f8f9fa;
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .action-btn.success {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(78, 205, 196, 0.3);
+        }
+
+        .action-btn.warning {
+            background: linear-gradient(135deg, #FFD93D 0%, #F39C12 100%);
+            color: #333;
+            box-shadow: 0 4px 12px rgba(255, 217, 61, 0.3);
+        }
+
+        /* 提示信息 */
+        .tips-section {
+            margin-top: 16px;
+            padding: 16px;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid #FFC107;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tips-section::before {
+            content: '💡';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            opacity: 0.3;
+        }
+
+        .tips-title {
+            font-weight: 600;
+            color: #F57C00;
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tips-content {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 警告信息 */
+        .warning-section {
+            margin-top: 16px;
+            padding: 16px;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 4px solid #f44336;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .warning-section::before {
+            content: '⚠️';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            opacity: 0.3;
+        }
+
+        .warning-title {
+            font-weight: 600;
+            color: #d32f2f;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            padding: 24px 24px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .modal-close {
+            background: #f5f5f5;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #666;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: #e0e0e0;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        /* 住宿模态框信息样式 */
+        .accommodation-modal-info {
+            text-align: center;
+        }
+
+        .accommodation-modal-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .accommodation-modal-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .accommodation-modal-address {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .accommodation-modal-phone {
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .accommodation-modal-phone:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+        }
+
+        .accommodation-modal-door-code {
+            font-size: 16px;
+            color: #ff6b6b;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .accommodation-modal-door-code:hover {
+            background: rgba(255, 107, 107, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* 住宿卡片样式 */
+        .accommodation-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-top: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accommodation-card.expanded {
+            border-color: #f093fb;
+            box-shadow: 0 4px 16px rgba(240, 147, 251, 0.15);
+        }
+
+        .accommodation-header {
+            padding: 16px;
+            background: linear-gradient(135deg, #fdf2fd 0%, #fef7fe 100%);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accommodation-card.expanded .accommodation-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .accommodation-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .accommodation-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .accommodation-basic {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .accommodation-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .accommodation-card.expanded .accommodation-name {
+            color: white;
+        }
+
+        .accommodation-brief {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .accommodation-card.expanded .accommodation-brief {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .accommodation-card .expand-icon {
+            font-size: 16px;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .accommodation-card.expanded .expand-icon {
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .accommodation-details {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .accommodation-card.expanded .accommodation-details {
+            padding: 16px;
+            max-height: 300px;
+        }
+
+        .accommodation-detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .accommodation-detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .accommodation-detail-label {
+            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .accommodation-detail-value {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .phone-link {
+            color: #667eea !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .phone-link:hover {
+            color: #764ba2 !important;
+            text-decoration: underline;
+        }
+        
+        .door-code {
+            color: #ff6b6b !important;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .door-code:hover {
+            color: #ff5252 !important;
+            text-decoration: underline;
+            transform: scale(1.05);
+        }
+        
+        .accommodation-door-code {
+            font-size: 16px;
+            color: #ff6b6b;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(255, 107, 107, 0.1);
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+        }
+
+        .accommodation-door-code:hover {
+            background: rgba(255, 107, 107, 0.2);
+            transform: scale(1.05);
+        }
+
+        .accommodation-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-start;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .action-btn.small {
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 6px;
+        }
+
+
+
+        /* 待办清单样式 */
+        .todo-group {
+            margin-bottom: 28px;
+        }
+
+        .todo-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .todo-group-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            padding-left: 4px;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .todo-item:hover {
+            background: #eef0f2;
+            transform: translateX(4px);
+        }
+
+        .todo-item.done {
+            opacity: 0.6;
+        }
+
+        .todo-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .todo-content {
+            flex: 1;
+        }
+
+        .todo-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .todo-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .todo-desc strong {
+            color: #333;
+            background: #FFE082;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .todo-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .todo-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* 加载动画 */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 隐藏工具类 */
+        .hidden {
+            display: none !important;
+        }
+
+        /* 照片查看器样式 */
+        .photo-gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-gallery-modal.show {
+            display: flex;
+        }
+
+        .photo-gallery-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .photo-gallery-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .photo-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .photo-nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .photo-prev {
+            left: 30px;
+        }
+
+        .photo-next {
+            right: 30px;
+        }
+
+        .photo-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .photo-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        .photo-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .photo-reference-card {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border: 1px solid #FFD54F;
+            border-radius: 12px;
+            margin-top: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-reference-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 213, 79, 0.3);
+        }
+
+        .photo-reference-header {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #FFD54F 0%, #FFC107 100%);
+            color: #333;
+        }
+
+        .photo-reference-icon {
+            font-size: 24px;
+        }
+
+        .photo-reference-info {
+            flex: 1;
+        }
+
+        .photo-reference-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .photo-reference-desc {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .photo-reference-preview {
+            display: flex;
+            gap: 8px;
+            padding: 16px;
+            overflow-x: auto;
+        }
+
+        .photo-reference-preview::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .photo-reference-preview::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+
+        .photo-reference-preview::-webkit-scrollbar-thumb {
+            background: #FFD54F;
+            border-radius: 2px;
+        }
+
+        .photo-preview-item {
+            flex-shrink: 0;
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .photo-preview-item:hover {
+            border-color: #FFC107;
+            transform: scale(1.05);
+        }
+
+        .photo-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 触摸滑动支持 */
+        .photo-gallery-container {
+            touch-action: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .photo-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .photo-prev {
+                left: 15px;
+            }
+            
+            .photo-next {
+                right: 15px;
+            }
+            
+            .photo-close {
+                top: 15px;
+                right: 15px;
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
+            }
+            
+            .photo-counter {
+                bottom: 15px;
+                font-size: 12px;
+            }
+
+            .photo-preview-item {
+                width: 60px;
+                height: 45px;
+            }
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+            
+            .header {
+                padding: 10px 12px;
+                position: fixed;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .header-content {
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+            
+            .header-left {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .header-title {
+                margin-right: 8px;
+            }
+
+            .header-title h1 {
+                font-size: 15px;
+                line-height: 1.3;
+            }
+
+            .header-title span {
+                display: none;
+            }
+            
+            .date-selector {
+                font-size: 12px;
+                padding: 4px 8px;
+                min-width: 100px;
+                flex-shrink: 0;
+            }
+            
+            .current-time-btn {
+                font-size: 12px;
+                padding: 4px 10px;
+                flex-shrink: 0;
+            }
+            
+            .header-right {
+                gap: 6px;
+            }
+            
+            .header-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+
+            .main-content {
+                padding-top: 100px;
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            .day-section {
+                margin: 12px 0;
+                border-radius: 12px;
+            }
+            
+            .day-header {
+                padding: 16px 18px;
+            }
+            
+            .day-title {
+                font-size: 17px;
+            }
+            
+            .day-date {
+                font-size: 13px;
+            }
+
+            .timeline {
+                padding: 12px 8px;
+            }
+
+            .timeline::before {
+                left: 48px;
+            }
+
+            .timeline-time {
+                flex: 0 0 35px;
+                font-size: 11px;
+                padding-right: 12px;
+            }
+
+            .timeline-dot-wrapper {
+                flex: 0 0 14px;
+            }
+
+            .timeline-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .timeline-item.current .timeline-dot {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .timeline-item.current .timeline-content {
+                transform: translateX(4px);
+            }
+            
+            .timeline-item.current .timeline-content::before {
+                font-size: 10px;
+                padding: 4px 10px;
+                top: -8px;
+                right: 8px;
+                border-radius: 12px;
+            }
+
+            .timeline-content-wrapper {
+                padding-left: 12px;
+            }
+
+            .timeline-content {
+                padding: 12px 14px;
+                border-radius: 10px;
+            }
+
+            .timeline-header {
+                margin-bottom: 6px;
+            }
+
+            .timeline-icon {
+                font-size: 16px;
+            }
+
+            .timeline-title {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            .timeline-description {
+                font-size: 12px;
+                line-height: 1.5;
+                margin-bottom: 10px;
+            }
+            
+            .transport-card, .accommodation-card {
+                margin-top: 10px;
+            }
+            
+            .transport-header, .accommodation-header {
+                padding: 12px 14px;
+            }
+            
+            .transport-info, .accommodation-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .transport-type {
+                font-size: 10px;
+                padding: 3px 6px;
+            }
+
+            .transport-route, .accommodation-name {
+                font-size: 13px;
+                line-height: 1.3;
+            }
+
+            .transport-time, .accommodation-brief {
+                font-size: 12px;
+            }
+            
+            .transport-details, .accommodation-details {
+                padding: 12px 14px;
+            }
+            
+            .transport-detail-item, .accommodation-detail-item {
+                padding: 6px 0;
+                margin-bottom: 8px;
+            }
+            
+            .transport-detail-label, .accommodation-detail-label {
+                font-size: 11px;
+            }
+            
+            .transport-detail-value, .accommodation-detail-value {
+                font-size: 12px;
+            }
+            
+            .seat-badge {
+                font-size: 11px;
+                padding: 2px 6px;
+                margin-right: 4px;
+                margin-bottom: 4px;
+                display: inline-block;
+                white-space: nowrap;
+            }
+            
+            .transport-detail-value {
+                line-height: 1.6;
+                word-break: break-word;
+            }
+            
+            .transport-route {
+                word-break: break-word;
+                line-height: 1.3;
+            }
+            
+            .transport-card .expand-icon {
+                flex-shrink: 0;
+            }
+            
+            .transport-header {
+                align-items: flex-start;
+            }
+
+            .action-buttons {
+                gap: 6px;
+                margin-top: 10px;
+            }
+
+            .action-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+                border-radius: 6px;
+                flex: 1;
+                min-width: 0;
+                justify-content: center;
+            }
+            
+            .action-btn.small {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .poi-image {
+                height: 140px;
+                border-radius: 6px;
+                margin: 8px 0;
+            }
+            
+            .tips-section, .warning-section {
+                margin-top: 12px;
+                padding: 12px;
+                border-radius: 6px;
+            }
+            
+            .tips-title, .warning-title {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+            
+            .tips-content {
+                font-size: 11px;
+                line-height: 1.5;
+            }
+            
+            .photo-reference-card {
+                margin-top: 10px;
+                border-radius: 8px;
+            }
+            
+            .photo-reference-header {
+                padding: 12px;
+            }
+            
+            .photo-reference-title {
+                font-size: 14px;
+            }
+            
+            .photo-reference-desc {
+                font-size: 12px;
+            }
+            
+            .photo-reference-preview {
+                padding: 12px;
+                gap: 6px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .photo-preview-item {
+                width: 60px;
+                height: 45px;
+                border-radius: 6px;
+                flex-shrink: 0;
+            }
+            
+            .photo-reference-card {
+                overflow: hidden;
+            }
+            
+            .photo-reference-header {
+                flex-wrap: wrap;
+            }
+            
+            .photo-reference-info {
+                min-width: 0;
+            }
+            
+            .photo-reference-title {
+                word-break: break-word;
+                line-height: 1.3;
+            }
+            
+            .photo-reference-desc {
+                word-break: break-word;
+                line-height: 1.4;
+            }
+
+            .modal-content {
+                margin: 8px;
+                max-height: 96vh;
+                border-radius: 12px;
+            }
+            
+            .modal-header {
+                padding: 18px 20px 16px;
+            }
+            
+            .modal-title {
+                font-size: 18px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .accommodation-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .accommodation-actions .action-btn {
+                width: 100%;
+            }
+            
+            .accommodation-modal-door-code {
+                font-size: 14px;
+                padding: 6px 12px;
+                margin-bottom: 12px;
+            }
+            
+            .door-code {
+                font-size: 11px;
+                letter-spacing: 0.5px;
+            }
+        }
+        
+        /* 超小屏幕优化 */
+        @media (max-width: 480px) {
+            .header-content {
+                flex-direction: column;
+                gap: 8px;
+                align-items: stretch;
+            }
+            
+            .header-left {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-right {
+                justify-content: center;
+            }
+            
+            .main-content {
+                padding-top: 120px;
+            }
+            
+            .timeline-time {
+                flex: 0 0 30px;
+                font-size: 10px;
+            }
+            
+            .timeline::before {
+                left: 42px;
+            }
+            
+            .timeline-content {
+                padding: 10px 12px;
+            }
+            
+            .timeline-title {
+                font-size: 13px;
+            }
+            
+            .timeline-description {
+                font-size: 11px;
+            }
+        }
+
+        /* 检票码查看器样式 */
+        .ticket-viewer-content {
+            max-width: 90vw;
+            width: 380px;
+            background: #f5f7fa;
+        }
+        .ticket-viewer-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+        }
+        .ticket-image-container {
+            text-align: center;
+        }
+        #ticket-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 60vh;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        #ticket-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="header-title">
+                    <h1>张家界行程助手</h1>
+                    <span>7天6晚家庭悠闲之旅</span>
+                </div>
+                <select class="date-selector" id="date-selector">
+                    <option value="">选择日期</option>
+                </select>
+                <button class="current-time-btn" id="current-time-btn">
+                    <div class="pulse-dot"></div>
+                    <span id="current-time">--:--</span>
+                </button>
+            </div>
+            <div class="header-right">
+                <button class="header-btn" id="home-btn" title="住宿信息">
+                    🏠
+                </button>
+                <button class="header-btn" id="todo-btn" title="待办清单" style="position: relative;">
+                    ✅
+                    <span class="todo-badge hidden" id="todo-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content" class="main-content">
+        <div class="loading">
+            <div class="spinner"></div>
+            <div>正在加载行程数据...</div>
+        </div>
+    </div>
+
+    <!-- 住宿信息弹窗 -->
+    <div class="modal" id="accommodation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">今日住宿</h3>
+                <button class="modal-close" onclick="closeModal('accommodation-modal')">×</button>
+            </div>
+            <div class="modal-body" id="accommodation-content">
+                <!-- 动态内容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 待办清单弹窗 -->
+    <div class="modal" id="todo-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">待办清单</h3>
+                <button class="modal-close" onclick="closeModal('todo-modal')">×</button>
+            </div>
+            <div class="modal-body" id="todo-content">
+                <!-- 动态内容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 照片查看器模态框 -->
+    <div class="photo-gallery-modal" id="photo-gallery-modal">
+        <div class="photo-gallery-container" id="photo-gallery-container">
+            <button class="photo-close" onclick="closePhotoGallery()">×</button>
+            <button class="photo-nav-btn photo-prev" onclick="previousPhoto()">‹</button>
+            <img class="photo-gallery-image" id="photo-gallery-image" src="" alt="">
+            <button class="photo-nav-btn photo-next" onclick="nextPhoto()">›</button>
+            <div class="photo-counter" id="photo-counter">1 / 1</div>
+        </div>
+    </div>
+
+    <!-- 检票码查看器模态框 -->
+    <div class="modal" id="ticket-viewer-modal">
+        <div class="modal-content ticket-viewer-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="ticket-viewer-title">天门山检票码</h3>
+                <button class="modal-close" onclick="closeTicketViewer()">×</button>
+            </div>
+            <div class="modal-body ticket-viewer-body">
+                <button class="photo-nav-btn photo-prev" id="ticket-prev-btn">‹</button>
+                <div class="ticket-image-container">
+                    <img id="ticket-image" src="" alt="检票码">
+                    <p id="ticket-name"></p>
+                </div>
+                <button class="photo-nav-btn photo-next" id="ticket-next-btn">›</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let tripData = null;
+        let todoData = null;
+        let currentDate = new Date();
+        
+        // 照片查看器变量
+        let currentPhotoGallery = [];
+        let currentPhotoIndex = 0;
+        
+        // 凤凰古城照片数据（与实际文件夹完全匹配）
+        const phoenixPhotos = [
+            // 千年凤凰古城系列 (9张)
+            { name: '看一眼千年的凤凰古城_1_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 1' },
+            { name: '看一眼千年的凤凰古城_2_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 2' },
+            { name: '看一眼千年的凤凰古城_3_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 3' },
+            { name: '看一眼千年的凤凰古城_4_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 4' },
+            { name: '看一眼千年的凤凰古城_5_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 5' },
+            { name: '看一眼千年的凤凰古城_6_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 6' },
+            { name: '看一眼千年的凤凰古城_7_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 7' },
+            { name: '看一眼千年的凤凰古城_8_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 8' },
+            { name: '看一眼千年的凤凰古城_9_日本摄影师RK_来自小红书网页版.jpg', title: '千年凤凰古城 9' },
+            // 湘西凤凰打卡系列 (4张)
+            { name: '湘西｜凤凰打卡这样拍！_1_AndyMacau0720_来自小红书网页版.jpg', title: '湘西凤凰打卡 1' },
+            { name: '湘西｜凤凰打卡这样拍！_2_AndyMacau0720_来自小红书网页版.jpg', title: '湘西凤凰打卡 2' },
+            { name: '湘西｜凤凰打卡这样拍！_3_AndyMacau0720_来自小红书网页版.jpg', title: '湘西凤凰打卡 3' },
+            { name: '湘西｜凤凰打卡这样拍！_4_AndyMacau0720_来自小红书网页版.jpg', title: '湘西凤凰打卡 4' },
+            // 雾锁沱江千帐灯系列 (10张，从_2开始到_11，实际文件中没有_1)
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_2_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 2' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_3_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 3' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_4_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 4' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_5_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 5' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_6_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 6' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_7_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 7' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_8_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 8' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_9_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 9' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_10_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 10' },
+            { name: '凤凰古城｜"雾锁沱江千帐灯"_11_Chenye._来自小红书网页版.jpg', title: '雾锁沱江千帐灯 11' }
+        ];
+        
+        // 页面初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查照片数组完整性
+            console.log(`凤凰古城照片数组初始化完成，共 ${phoenixPhotos.length} 张照片`);
+            phoenixPhotos.forEach((photo, index) => {
+                if (!photo.name || !photo.title) {
+                    console.error(`照片 ${index + 1} 数据不完整:`, photo);
+                }
+            });
+            
+            initApp();
+        });
+
+        async function initApp() {
+            try {
+                // 显示当前时间
+                updateCurrentTime();
+                setInterval(updateCurrentTime, 1000);
+
+                // 加载数据
+                await Promise.all([loadTripData(), loadTodoData()]);
+                
+                // 初始化UI
+                initDateSelector();
+                renderTrip();
+                updateTodoBadge();
+                initEventListeners();
+                
+                // 延迟滚动到当前时间，确保DOM完全渲染
+                setTimeout(() => {
+                    scrollToCurrentTime();
+                    // 自动展开当前时间相关的交通卡片
+                    autoExpandCurrentTimeCards();
+                }, 100);
+                
+                // 定期检查并更新当前时间高亮
+                setInterval(() => {
+                    updateCurrentTimeHighlight();
+                    checkTransportAutoExpand();
+                }, 60000);
+                
+            } catch (error) {
+                console.error('初始化失败:', error);
+                document.getElementById('main-content').innerHTML = 
+                    '<div class="loading">❌ 加载失败，请刷新页面重试</div>';
+            }
+        }
+
+        // 加载行程数据
+        async function loadTripData() {
+            try {
+                // 添加时间戳防止缓存
+                const timestamp = new Date().getTime();
+                const response = await fetch(`trip-data.json?v=${timestamp}`, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                });
+                tripData = await response.json();
+            } catch (error) {
+                console.error('无法从JSON文件加载数据:', error);
+                throw error;
+            }
+        }
+
+        // 加载待办数据
+        async function loadTodoData() {
+            try {
+                // 添加时间戳防止缓存
+                const timestamp = new Date().getTime();
+                const response = await fetch(`todo-data.json?v=${timestamp}`, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                });
+                todoData = await response.json();
+            } catch (error) {
+                console.error('无法加载待办数据:', error);
+                todoData = { groups: [] };
+            }
+        }
+
+        // 初始化日期选择器
+        function initDateSelector() {
+            const selector = document.getElementById('date-selector');
+            const now = new Date();
+            let selectedDate = null;
+            
+            tripData.days.forEach(day => {
+                const option = document.createElement('option');
+                const dayDate = new Date(day.date);
+                option.value = day.date;
+                option.textContent = `${day.title.split(' ')[0]} (${formatDate(dayDate, 'short')})`;
+                
+                // 智能选择日期：优先选择今天，如果没有今天则选择最近的未来日期，最后选择最近的过去日期
+                if (isToday(dayDate)) {
+                    selectedDate = day.date;
+                    option.selected = true;
+                } else if (!selectedDate) {
+                    // 如果还没有选中的日期，检查是否是未来最近的日期
+                    if (dayDate > now) {
+                        selectedDate = day.date;
+                        option.selected = true;
+                    } else if (!tripData.days.some(d => new Date(d.date) > now)) {
+                        // 如果没有未来日期，选择最后一天
+                        const lastDay = tripData.days[tripData.days.length - 1];
+                        if (day.date === lastDay.date) {
+                            selectedDate = day.date;
+                            option.selected = true;
+                        }
+                    }
+                }
+                
+                selector.appendChild(option);
+            });
+            
+            // 如果还是没有选中任何日期，默认选择第一天
+            if (!selectedDate && tripData.days.length > 0) {
+                selector.selectedIndex = 1; // 跳过第一个空选项
+            }
+        }
+
+        // 初始化事件监听
+        function initEventListeners() {
+            // 日期选择器
+            document.getElementById('date-selector').addEventListener('change', (e) => {
+                if (e.target.value) {
+                    scrollToDay(e.target.value);
+                }
+            });
+
+            // 当前时间按钮
+            document.getElementById('current-time-btn').addEventListener('click', scrollToCurrentTime);
+
+            // 住宿按钮
+            document.getElementById('home-btn').addEventListener('click', showAccommodation);
+
+            // 待办按钮
+            document.getElementById('todo-btn').addEventListener('click', showTodoList);
+
+            // 弹窗关闭
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal.id);
+                    }
+                });
+            });
+
+            // 照片查看器事件监听
+            initPhotoGalleryEvents();
+        }
+
+        // 渲染行程
+        function renderTrip() {
+            if (!tripData) return;
+
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = '';
+
+            tripData.days.forEach(day => {
+                const dayElement = createDayElement(day);
+                mainContent.appendChild(dayElement);
+            });
+
+            // 初始高亮当前时间
+            updateCurrentTimeHighlight();
+            
+            // 自动展开交通卡片
+            checkTransportAutoExpand();
+        }
+
+        // 创建日程元素
+        function createDayElement(day) {
+            const dayDiv = document.createElement('div');
+            dayDiv.className = 'day-section';
+            dayDiv.id = `day-${day.date}`;
+
+            const dayDate = new Date(day.date);
+            const isCurrentDay = isToday(dayDate);
+            const hasCurrentTimeItem = isCurrentDay && day.items.some(item => 
+                isCurrentTimeItem(item.time, day.date, day.items)
+            );
+            
+            dayDiv.innerHTML = `
+                <div class="day-header" onclick="toggleDay('${day.date}')">
+                    <div class="day-header-content">
+                        <div class="day-title">${day.title}</div>
+                        <div class="day-date">
+                            ${formatDate(dayDate)}
+                            ${day.subtitle ? '<span class="separator">|</span>' + day.subtitle : ''}
+                        </div>
+                    </div>
+                    <div class="collapse-icon">▼</div>
+                </div>
+                <div class="day-content">
+                    <div class="timeline">
+                        ${day.items.map(item => createTimelineItem(item, day.date, day.accommodation, day.items)).join('')}
+                    </div>
+                </div>
+            `;
+
+            // 默认折叠所有日程，除非有当前时间项目
+            if (!hasCurrentTimeItem) {
+                dayDiv.classList.add('collapsed');
+            }
+
+            const dayHeader = dayDiv.querySelector('.day-header-content');
+            
+            // 如果有检票码信息，添加按钮
+            if (day.tickets && day.tickets.length > 0) {
+                const ticketBtn = document.createElement('button');
+                ticketBtn.className = 'day-action-btn';
+                ticketBtn.innerHTML = '🎫 检票码';
+                ticketBtn.onclick = () => showTicketViewer(day.tickets);
+                dayHeader.appendChild(ticketBtn);
+            }
+
+            // 如果有住宿信息，添加按钮
+            if (day.accommodation) {
+                const accommodationBtn = document.createElement('button');
+                accommodationBtn.className = 'day-action-btn';
+                accommodationBtn.innerHTML = '🏨 住宿信息';
+                accommodationBtn.onclick = () => showAccommodation();
+                dayHeader.appendChild(accommodationBtn);
+            }
+
+            return dayDiv;
+        }
+
+        // 创建时间线项目
+        function createTimelineItem(item, dayDate, dayAccommodation = null, allItems = []) {
+            const itemTime = new Date(`${dayDate}T${item.time}:00`);
+            const isCurrentItem = isCurrentTimeItem(item.time, dayDate, allItems);
+            
+            let content = `
+                <div class="timeline-item ${isCurrentItem ? 'current' : ''}" data-time="${item.time}" data-type="${item.type}">
+                    <div class="timeline-time">${item.time}</div>
+                    <div class="timeline-dot-wrapper">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content-wrapper">
+                    <div class="timeline-content">
+                            <div class="timeline-header">
+                                <span class="timeline-icon">${getTypeIcon(item.type)}</span>
+                        <div class="timeline-title">${item.title}</div>
+                            </div>
+                            ${item.description ? `<div class="timeline-description">${item.description}</div>` : ''}
+            `;
+
+            // 添加景点图片
+            if (item.type === 'poi') {
+                if (item.images && item.images.length > 0) {
+                    // 使用服务器图片
+                    const imageUrl = `https://ly.bufengai.com/hunan/image/张家界/${item.images[0]}`;
+                    content += `<img class="poi-image" src="${imageUrl}" alt="${item.title}" loading="lazy" onclick="openPoiGallery('${item.title}', ${JSON.stringify(item.images).replace(/"/g, '&quot;')})">`;
+                } else {
+                    // 备用：使用在线图片
+                    const searchQuery = item.imageKeyword || item.title.split('·').pop();
+                    content += `<img class="poi-image" src="https://source.unsplash.com/400x300/?${encodeURIComponent(searchQuery)}" alt="${item.title}" loading="lazy">`;
+                }
+            }
+
+            // 添加照片参考卡片
+            if (item.type === 'photo' && item.photoReference) {
+                content += createPhotoReferenceCard(item.photoReference.title, item.photoReference.description, phoenixPhotos);
+            }
+
+            // 为POI添加照片参考卡片
+            if (item.type === 'poi' && item.photoReference && item.images) {
+                const poiPhotos = item.images.map((file, index) => ({
+                    name: `${item.title} - 图片 ${index + 1}`,
+                    src: `https://ly.bufengai.com/hunan/image/张家界/${file}`
+                }));
+                content += createPoiPhotoReferenceCard(item.photoReference.title, item.photoReference.description, poiPhotos);
+            }
+
+            // 添加交通卡片
+            if (item.type === 'transport' && item.card) {
+                content += createTransportCard(item);
+            }
+
+            // 添加住宿卡片（当交通项目是到达住宿地点时）
+            if (item.type === 'transport' && dayAccommodation && 
+                (item.title.includes('到民宿') || item.title.includes('到酒店') || 
+                 item.description.includes('→民宿') || item.description.includes('→酒店') ||
+                 (item.description.includes('民宿') && !item.description.includes('民宿→')))) {
+                content += createAccommodationCard(dayAccommodation);
+            }
+
+            // 添加操作按钮
+            if (item.actions && item.actions.length > 0) {
+                content += createActionButtons(item);
+            }
+
+            // 添加提示信息
+            if (item.tips) {
+                content += createTipsSection(item.tips);
+            }
+
+            // 添加警告信息
+            if (item.warnings) {
+                content += createWarningsSection(item.warnings);
+            }
+
+            content += `
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return content;
+        }
+
+        // 获取事件类型图标
+        function getTypeIcon(type) {
+            const icons = {
+                transport: '🚗',
+                train: '🚄',
+                flight: '✈️',
+                meal: '🍽️',
+                poi: '📍',
+                photo: '📸',
+                note: '📝',
+                show: '🎭',
+                car: '🚗',
+                bus: '🚌',
+                cablecar: '🚠',
+                elevator: '🛗',
+                accommodation: '🏨'
+            };
+            return icons[type] || '📌';
+        }
+
+        // 创建住宿卡片
+        function createAccommodationCard(accommodation) {
+            if (!accommodation) return '';
+            
+            const navigationAddress = accommodation.name === '云几木民宿' ? '武陵源区百溪沟小区1栋二单元' : accommodation.address;
+            const cardId = `accommodation-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+            
+            return `
+                <div class="accommodation-card" id="${cardId}">
+                    <div class="accommodation-header" onclick="toggleAccommodationCard('${cardId}')">
+                        <div class="accommodation-info">
+                            <span class="accommodation-icon">🏨</span>
+                            <div class="accommodation-basic">
+                                <span class="accommodation-name">${accommodation.name}</span>
+                                <span class="accommodation-brief">${accommodation.address}</span>
+                            </div>
+                        </div>
+                        <div class="expand-icon">▼</div>
+                    </div>
+                    <div class="accommodation-details">
+                        <div class="accommodation-detail-item">
+                            <span class="accommodation-detail-label">民宿名称</span>
+                            <span class="accommodation-detail-value">${accommodation.name}</span>
+                        </div>
+                        <div class="accommodation-detail-item">
+                            <span class="accommodation-detail-label">详细地址</span>
+                            <span class="accommodation-detail-value">${accommodation.address}</span>
+                        </div>
+                        ${accommodation.tel ? `
+                        <div class="accommodation-detail-item">
+                            <span class="accommodation-detail-label">联系电话</span>
+                            <span class="accommodation-detail-value phone-link" onclick="callPhone('${accommodation.tel}')">${accommodation.tel}</span>
+                        </div>` : ''}
+                        ${accommodation.doorCode ? `
+                        <div class="accommodation-detail-item">
+                            <span class="accommodation-detail-label">开门密码</span>
+                            <span class="accommodation-detail-value door-code" onclick="copyDoorCode('${accommodation.doorCode}')">${accommodation.doorCode}</span>
+                        </div>` : ''}
+                        <div class="accommodation-actions">
+                            <button class="action-btn secondary small" onclick="copyAddress('${navigationAddress}')">📋 复制地址</button>
+                            <button class="action-btn primary small" onclick="navigateToAddress('${navigationAddress}')">📍 地图导航</button>
+                            <button class="action-btn warning small" onclick="callTaxi('${navigationAddress}')">🚖 滴滴打车</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 创建交通卡片
+        function createTransportCard(item) {
+            const card = item.card;
+            const isExpanded = shouldAutoExpand(item);
+            
+            // 处理座位信息 - 解析格式如 "15车17ABC" -> "15车17A/B/C"
+            let seatInfo = '';
+            if (card.seats && Array.isArray(card.seats)) {
+                const formattedSeats = card.seats.map(seat => {
+                    // 匹配格式：数字+车+数字+字母组合
+                    const match = seat.match(/(\d+车\d+)([A-Z]+)/);
+                    if (match) {
+                        const prefix = match[1];
+                        const letters = match[2].split('').join('/');
+                        return `${prefix}${letters}`;
+                    }
+                    return seat;
+                });
+                seatInfo = formattedSeats.map(seat => `<span class="seat-badge">${seat}</span>`).join('');
+            } else if (card.seat) {
+                seatInfo = `<span class="seat-badge">${card.seat}</span>`;
+            }
+            
+            return `
+                <div class="transport-card ${isExpanded ? 'expanded' : ''}" id="transport-${item.time}">
+                    <div class="transport-header" onclick="toggleTransportCard('transport-${item.time}')">
+                        <div class="transport-info">
+                            <span class="transport-type">${getTransportTypeText(item.mode)}</span>
+                            <span class="transport-route">${card.depart.station} → ${card.arrive.station}</span>
+                            <span class="transport-time">${card.depart.time} - ${card.arrive.time}</span>
+                        </div>
+                        <div class="expand-icon">▼</div>
+                    </div>
+                    <div class="transport-details">
+                        <div class="transport-detail-item">
+                            <span class="transport-detail-label">车次</span>
+                            <span class="transport-detail-value">${card.trainNo || card.flightNo}</span>
+                        </div>
+                        ${seatInfo ? `
+                        <div class="transport-detail-item">
+                            <span class="transport-detail-label">座位</span>
+                            <span class="transport-detail-value">${seatInfo}</span>
+                        </div>` : ''}
+                        ${card.gate ? `
+                        <div class="transport-detail-item">
+                            <span class="transport-detail-label">检票口</span>
+                            <span class="transport-detail-value">${card.gate}</span>
+                        </div>` : ''}
+                        ${card.platform ? `
+                        <div class="transport-detail-item">
+                            <span class="transport-detail-label">站台</span>
+                            <span class="transport-detail-value">${card.platform}</span>
+                        </div>` : ''}
+                        ${card.duration ? `
+                        <div class="transport-detail-item">
+                            <span class="transport-detail-label">用时</span>
+                            <span class="transport-detail-value">${card.duration}</span>
+                        </div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 创建操作按钮
+        function createActionButtons(item) {
+            let buttons = '<div class="action-buttons">';
+            
+            if (item.actions.includes('amap') && item.address) {
+                buttons += `<button class="action-btn primary" onclick="navigateToAddress('${item.address.name}')">📍 地图导航</button>`;
+            }
+            
+            if (item.actions.includes('didi') && item.address) {
+                buttons += `<button class="action-btn warning" onclick="callTaxi('${item.address.name}')">🚖 滴滴打车</button>`;
+            }
+            
+            if (item.actions.includes('copy') && item.address) {
+                buttons += `<button class="action-btn secondary" onclick="copyAddress('${item.address.name}')">📋 复制地址</button>`;
+            }
+            
+            buttons += '</div>';
+            return buttons;
+        }
+
+        // 创建提示信息
+        function createTipsSection(tips) {
+            const icon = tips.type === 'photo' ? '📸' : 
+                       tips.type === 'dining' ? '🍽️' : 
+                       tips.type === 'play' ? '🎯' : '💡';
+            
+            return `
+                <div class="tips-section">
+                    <div class="tips-title">
+                        <span>${icon}</span>
+                        ${tips.title}
+                    </div>
+                    <div class="tips-content">${tips.content}</div>
+                </div>
+            `;
+        }
+
+        // 创建警告信息
+        function createWarningsSection(warnings) {
+            return `
+                <div class="warning-section">
+                    <div class="warning-title">${warnings.title}</div>
+                    <div class="tips-content">${warnings.content}</div>
+                </div>
+            `;
+        }
+
+        // 切换日程展开/折叠
+        function toggleDay(date) {
+            const daySection = document.getElementById(`day-${date}`);
+            daySection.classList.toggle('collapsed');
+        }
+
+        // 切换交通卡片展开/折叠
+        function toggleTransportCard(id) {
+            const card = document.getElementById(id);
+            card.classList.toggle('expanded');
+        }
+
+        // 切换住宿卡片展开/折叠
+        function toggleAccommodationCard(cardId) {
+            const card = document.getElementById(cardId);
+            if (card) {
+                card.classList.toggle('expanded');
+            }
+        }
+
+        // 判断是否应该自动展开交通卡片
+        function shouldAutoExpand(item) {
+            if (!item.card) return false;
+            
+            const now = new Date();
+            const departTime = new Date(`${now.toISOString().split('T')[0]}T${item.card.depart.time}:00`);
+            const arriveTime = new Date(`${now.toISOString().split('T')[0]}T${item.card.arrive.time}:00`);
+            
+            // 出发前60分钟到到达后15分钟自动展开
+            const beforeDepart = new Date(departTime.getTime() - 60 * 60 * 1000);
+            const afterArrive = new Date(arriveTime.getTime() + 15 * 60 * 1000);
+            
+            return now >= beforeDepart && now <= afterArrive;
+        }
+
+        // 检查并自动展开交通卡片
+        function checkTransportAutoExpand() {
+            document.querySelectorAll('.transport-card').forEach(card => {
+                const timeMatch = card.id.match(/transport-(\d{2}:\d{2})/);
+                if (timeMatch) {
+                    const time = timeMatch[1];
+                    const timelineItem = card.closest('.timeline-item');
+                    const daySection = timelineItem.closest('.day-section');
+                    const dayDate = daySection.id.replace('day-', '');
+                    
+                    // 构造完整的item对象
+                    const item = {
+                        card: {
+                            depart: { time: time },
+                            arrive: { time: card.querySelector('.transport-time').textContent.split(' - ')[1] }
+                        }
+                    };
+                    
+                    if (shouldAutoExpand(item)) {
+                        card.classList.add('expanded');
+                    }
+                }
+            });
+        }
+        
+        // 自动展开当前时间相关的卡片
+        function autoExpandCurrentTimeCards() {
+            // 展开当前时间项目中的交通卡片
+            document.querySelectorAll('.timeline-item.current .transport-card').forEach(card => {
+                card.classList.add('expanded');
+            });
+            
+            // 展开当前时间项目中的住宿卡片
+            document.querySelectorAll('.timeline-item.current .accommodation-card').forEach(card => {
+                card.classList.add('expanded');
+            });
+        }
+
+        // 更新当前时间
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('current-time').textContent = timeStr;
+        }
+
+        // 更新当前时间高亮
+        function updateCurrentTimeHighlight() {
+            const now = new Date();
+            
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.remove('current');
+            });
+            
+            // 找到当前时间对应的项目
+            tripData.days.forEach(day => {
+                const dayDate = new Date(day.date);
+                if (isToday(dayDate)) {
+                    day.items.forEach(item => {
+                        if (isCurrentTimeItem(item.time, day.date, day.items)) {
+                            const element = document.querySelector(`#day-${day.date} [data-time="${item.time}"]`);
+                            if (element) {
+                                element.classList.add('current');
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        // 滚动到指定日期
+        function scrollToDay(date) {
+            const dayElement = document.getElementById(`day-${date}`);
+            if (dayElement) {
+                dayElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // 展开该日期
+                dayElement.classList.remove('collapsed');
+            }
+        }
+
+        // 滚动到当前时间
+        function scrollToCurrentTime() {
+            const currentItem = document.querySelector('.timeline-item.current');
+            if (currentItem) {
+                // 确保当前日期的section是展开的
+                const daySection = currentItem.closest('.day-section');
+                if (daySection) {
+                    daySection.classList.remove('collapsed');
+                }
+                
+                // 滚动到当前项目，并添加额外的视觉提示
+                currentItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // 添加临时的闪烁效果
+                currentItem.style.animation = 'highlightCurrent 2s ease-in-out';
+                setTimeout(() => {
+                    currentItem.style.animation = '';
+                }, 2000);
+            } else {
+                // 如果没有当前项，智能选择最合适的日期
+                const now = new Date();
+                const currentDateStr = now.toISOString().split('T')[0];
+                
+                // 首先尝试今天
+                let targetDate = tripData.days.find(day => day.date === currentDateStr);
+                
+                // 如果今天不在行程中，找最近的未来日期
+                if (!targetDate) {
+                    targetDate = tripData.days.find(day => new Date(day.date) > now);
+                }
+                
+                // 如果没有未来日期，选择最后一天
+                if (!targetDate) {
+                    targetDate = tripData.days[tripData.days.length - 1];
+                }
+                
+                if (targetDate) {
+                    scrollToDay(targetDate.date);
+                }
+            }
+        }
+
+        // 显示住宿信息
+        function showAccommodation() {
+            // 获取当前选择的日期，如果没有选择则使用今天
+            const selector = document.getElementById('date-selector');
+            const selectedDate = selector.value || new Date().toISOString().split('T')[0];
+            const selectedData = tripData.days.find(day => day.date === selectedDate);
+            
+            const content = document.getElementById('accommodation-content');
+            
+            if (selectedData && selectedData.accommodation) {
+                const acc = selectedData.accommodation;
+                const navigationAddress = acc.name === '云几木民宿' ? '武陵源区百溪沟小区1栋二单元' : acc.address;
+                
+                content.innerHTML = `
+                    <div class="accommodation-modal-info">
+                        <div class="accommodation-modal-icon">🏨</div>
+                        <h2 class="accommodation-modal-name">${acc.name}</h2>
+                        <p class="accommodation-modal-address">${acc.address}</p>
+                        ${acc.tel ? `<div class="accommodation-modal-phone" onclick="callPhone('${acc.tel}')">📞 ${acc.tel}</div>` : ''}
+                        ${acc.doorCode ? `<div class="accommodation-modal-door-code" onclick="copyDoorCode('${acc.doorCode}')">🔑 开门密码：${acc.doorCode}</div>` : ''}
+                <div class="accommodation-actions">
+                            <button class="action-btn secondary" onclick="copyAddress('${navigationAddress}')">📋 复制地址</button>
+                            <button class="action-btn primary" onclick="navigateToAddress('${navigationAddress}')">📍 地图导航</button>
+                            <button class="action-btn warning" onclick="callTaxi('${navigationAddress}')">🚖 滴滴打车</button>
+                        </div>
+                </div>
+            `;
+            } else {
+                content.innerHTML = '<p style="text-align: center; color: #666;">今日无住宿安排</p>';
+            }
+            
+            openModal('accommodation-modal');
+        }
+
+        // 显示待办清单
+        function showTodoList() {
+            const content = document.getElementById('todo-content');
+            let html = '';
+
+            todoData.groups.forEach(group => {
+                html += `<div class="todo-group">`;
+                html += `<h4 class="todo-group-title">${group.title}</h4>`;
+
+                group.items.forEach(item => {
+                    const checked = localStorage.getItem(`todo-${item.id}`) === 'true';
+                    html += `
+                        <div class="todo-item ${checked ? 'done' : ''}" onclick="updateTodoStatus('${item.id}')">
+                            <input type="checkbox" class="todo-checkbox" id="todo-${item.id}" ${checked ? 'checked' : ''} 
+                                   onclick="event.stopPropagation()">
+                            <div class="todo-content">
+                                <div class="todo-title">${item.title}</div>
+                                ${item.desc ? `<div class="todo-desc">${item.desc}</div>` : ''}
+                                ${item.link ? `<a href="${item.link}" target="_blank" class="todo-link" onclick="event.stopPropagation()">前往办理 →</a>` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+            });
+
+            content.innerHTML = html;
+            openModal('todo-modal');
+        }
+
+        // 更新待办状态
+        function updateTodoStatus(id) {
+            const checkbox = document.getElementById(`todo-${id}`);
+            checkbox.checked = !checkbox.checked;
+            localStorage.setItem(`todo-${id}`, checkbox.checked);
+            
+            // 更新样式
+            checkbox.closest('.todo-item').classList.toggle('done', checkbox.checked);
+            
+            updateTodoBadge();
+        }
+
+        // 更新待办徽章
+        function updateTodoBadge() {
+            let undoneCount = 0;
+            
+            todoData.groups.forEach(group => {
+                group.items.forEach(item => {
+                    if (!item.done && localStorage.getItem(`todo-${item.id}`) !== 'true') {
+                        undoneCount++;
+                    }
+                });
+            });
+
+            const badge = document.getElementById('todo-badge');
+            if (undoneCount > 0) {
+                badge.textContent = undoneCount;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        // 打开弹窗
+        function openModal(id) {
+            document.getElementById(id).classList.add('show');
+        }
+
+        // 关闭弹窗
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        // 导航到地址
+        function navigateToAddress(address) {
+            // 尝试唤起高德地图App
+            window.location.href = `amapuri://route/plan/?dlat=&dlon=&dname=${encodeURIComponent(address)}&dev=0&t=0`;
+            
+            // 备用方案：高德地图网页版
+            setTimeout(() => {
+                window.open(`https://uri.amap.com/navigation?to=&toName=${encodeURIComponent(address)}&mode=car&policy=1&src=mypage&coordinate=gaode&callnative=0`);
+            }, 500);
+        }
+
+        // 打车到地址
+        function callTaxi(address) {
+            // 尝试唤起滴滴App
+            window.location.href = `diditaxi://app?toAddress=${encodeURIComponent(address)}`;
+            
+            // 备用方案：滴滴H5
+            setTimeout(() => {
+                window.open(`https://common.diditaxi.com.cn/general/webEntry?address=${encodeURIComponent(address)}`);
+            }, 500);
+        }
+
+        // 拨打电话
+        function callPhone(phoneNumber) {
+            window.location.href = `tel:${phoneNumber}`;
+        }
+
+        // 复制地址
+        function copyAddress(address) {
+            navigator.clipboard.writeText(address).then(() => {
+                // 可以添加一个更优雅的提示
+                showToast('地址已复制到剪贴板');
+            }).catch(() => {
+                // 降级方案
+                const input = document.createElement('input');
+                input.value = address;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast('地址已复制到剪贴板');
+            });
+        }
+        
+        // 复制开门密码
+        function copyDoorCode(doorCode) {
+            navigator.clipboard.writeText(doorCode).then(() => {
+                showToast('🔑 开门密码已复制到剪贴板');
+            }).catch(() => {
+                // 降级方案
+                const input = document.createElement('input');
+                input.value = doorCode;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast('🔑 开门密码已复制到剪贴板');
+            });
+        }
+
+        // 显示提示信息
+        function showToast(message) {
+            // 创建提示元素
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 24px;
+                font-size: 14px;
+                z-index: 3000;
+                animation: fadeInUp 0.3s ease;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            // 3秒后移除
+            setTimeout(() => {
+                toast.style.animation = 'fadeOutDown 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+
+        // 照片查看器功能
+        function initPhotoGalleryEvents() {
+            const galleryModal = document.getElementById('photo-gallery-modal');
+            const galleryContainer = document.getElementById('photo-gallery-container');
+            
+            // 点击模态框背景关闭
+            galleryModal.addEventListener('click', (e) => {
+                if (e.target === galleryModal) {
+                    closePhotoGallery();
+                }
+            });
+
+            // 键盘事件支持
+            document.addEventListener('keydown', (e) => {
+                if (!galleryModal.classList.contains('show')) return;
+                
+                if (e.key === 'Escape') {
+                    closePhotoGallery();
+                } else if (e.key === 'ArrowLeft') {
+                    previousPhoto();
+                } else if (e.key === 'ArrowRight') {
+                    nextPhoto();
+                }
+            });
+
+            // 触摸滑动支持
+            let startX = 0;
+            let startY = 0;
+            let moveX = 0;
+            let moveY = 0;
+            
+            galleryContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            galleryContainer.addEventListener('touchmove', (e) => {
+                if (!startX) return;
+                moveX = e.touches[0].clientX;
+                moveY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            galleryContainer.addEventListener('touchend', () => {
+                if (!startX) return;
+                
+                const deltaX = startX - moveX;
+                const deltaY = startY - moveY;
+                
+                // 水平滑动距离大于垂直滑动距离，且大于50px才触发
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                    if (deltaX > 0) {
+                        nextPhoto(); // 向左滑动，下一张
+                    } else {
+                        previousPhoto(); // 向右滑动，上一张
+                    }
+                }
+                
+                startX = 0;
+                startY = 0;
+                moveX = 0;
+                moveY = 0;
+            }, { passive: true });
+        }
+
+        function openPhotoGallery(photos, startIndex = 0) {
+            console.log(`打开照片查看器，共 ${photos.length} 张照片，从第 ${startIndex + 1} 张开始`);
+            
+            if (!photos || photos.length === 0) {
+                console.error('没有照片可显示');
+                return;
+            }
+            
+            if (startIndex >= photos.length) {
+                console.warn(`起始索引 ${startIndex} 超出范围，重置为 0`);
+                startIndex = 0;
+            }
+            
+            currentPhotoGallery = photos;
+            currentPhotoIndex = startIndex;
+            
+            // 输出照片数组信息用于调试
+            console.log('照片列表:', photos.map((p, i) => `${i+1}. ${p.name}`));
+            
+            updatePhotoDisplay();
+            document.getElementById('photo-gallery-modal').classList.add('show');
+        }
+
+        function closePhotoGallery() {
+            document.getElementById('photo-gallery-modal').classList.remove('show');
+        }
+
+        // 打开景点图片画廊
+        function openPoiGallery(title, imageFiles) {
+            console.log(`打开${title}图片画廊，图片文件:`, imageFiles);
+            
+            if (!imageFiles || imageFiles.length === 0) {
+                console.error('没有图片可显示');
+                return;
+            }
+            
+            // 将文件名数组转换为照片对象数组
+            const photos = imageFiles.map((file, index) => ({
+                name: `${title} - 图片 ${index + 1}`,
+                src: `https://ly.bufengai.com/hunan/image/张家界/${file}`
+            }));
+            
+            openPhotoGallery(photos, 0);
+        }
+
+        function previousPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + currentPhotoGallery.length) % currentPhotoGallery.length;
+            updatePhotoDisplay();
+        }
+
+        function nextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotoGallery.length;
+            updatePhotoDisplay();
+        }
+
+        function updatePhotoDisplay() {
+            const image = document.getElementById('photo-gallery-image');
+            const counter = document.getElementById('photo-counter');
+            const photo = currentPhotoGallery[currentPhotoIndex];
+            
+            // 添加调试信息
+            console.log(`显示照片 ${currentPhotoIndex + 1}/${currentPhotoGallery.length}:`, photo.name);
+            
+            if (!photo) {
+                console.error(`照片索引 ${currentPhotoIndex} 超出范围，数组长度: ${currentPhotoGallery.length}`);
+                return;
+            }
+            
+            // 使用photo对象中的src属性，如果没有则使用凤凰古城路径（向后兼容）
+            const imagePath = photo.src || `images/${photo.name}`;
+            image.src = imagePath;
+            image.alt = photo.title || photo.name;
+            counter.textContent = `${currentPhotoIndex + 1} / ${currentPhotoGallery.length}`;
+            
+            // 检查图片是否能正确加载
+            image.onerror = function() {
+                console.error(`图片加载失败: ${imagePath}`);
+            };
+            
+            image.onload = function() {
+                console.log(`图片加载成功: ${imagePath}`);
+            };
+        }
+
+        // 创建POI照片参考卡片
+        function createPoiPhotoReferenceCard(title, description, photos) {
+            return `
+                <div class="photo-reference-card" onclick="openPhotoGallery(${JSON.stringify(photos).replace(/"/g, '&quot;')}, 0)">
+                    <div class="photo-reference-header">
+                        <div class="photo-reference-icon">📸</div>
+                        <div class="photo-reference-info">
+                            <div class="photo-reference-title">${title}</div>
+                            <div class="photo-reference-desc">${description}</div>
+                        </div>
+                    </div>
+                    <div class="photo-reference-preview">
+                        ${photos.slice(0, 6).map(photo => 
+                            `<div class="photo-preview-item">
+                                <img src="${photo.src}" alt="${photo.name}" loading="lazy">
+                            </div>`
+                        ).join('')}
+                        ${photos.length > 6 ? `<div class="photo-preview-item" style="display: flex; align-items: center; justify-content: center; background: #f5f5f5; color: #666; font-size: 12px;">+${photos.length - 6}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 创建照片参考卡片
+        function createPhotoReferenceCard(title, description, photos) {
+            return `
+                <div class="photo-reference-card" onclick="openPhotoGallery(phoenixPhotos, 0)">
+                    <div class="photo-reference-header">
+                        <div class="photo-reference-icon">📸</div>
+                        <div class="photo-reference-info">
+                            <div class="photo-reference-title">${title}</div>
+                            <div class="photo-reference-desc">${description}</div>
+                        </div>
+                    </div>
+                    <div class="photo-reference-preview">
+                        ${photos.slice(0, 6).map((photo, index) => `
+                            <div class="photo-preview-item" onclick="event.stopPropagation(); openPhotoGallery(phoenixPhotos, ${index})">
+                                <img src="images/${photo.name}" alt="${photo.title}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA4MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRjVGNUY1Ii8+Cjx0ZXh0IHg9IjQwIiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+5Zu+54mH</text+>
+</svg>'">
+                            </div>
+                        `).join('')}
+                        ${photos.length > 6 ? `<div class="photo-preview-item" style="display: flex; align-items: center; justify-content: center; background: #f5f5f5; color: #666; font-size: 12px;">+${photos.length - 6}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 工具函数
+        function formatDate(date, format = 'full') {
+            if (format === 'short') {
+                return date.toLocaleDateString('zh-CN', {
+                    month: 'numeric',
+                    day: 'numeric'
+                });
+            }
+            return date.toLocaleDateString('zh-CN', {
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long'
+            });
+        }
+
+        function isToday(date) {
+            const today = new Date();
+            return date.toDateString() === today.toDateString();
+        }
+
+        function isCurrentTimeItem(itemTime, dayDate, allItems = []) {
+            const now = new Date();
+            const dayDateObj = new Date(dayDate);
+            
+            if (!isToday(dayDateObj)) return false;
+            
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
+            const currentTimeInMinutes = currentHour * 60 + currentMinute;
+            
+            // 解析项目时间
+            const [itemHour, itemMinute] = itemTime.split(':').map(Number);
+            const itemTimeInMinutes = itemHour * 60 + itemMinute;
+            
+            // 找到当前项目在所有项目中的索引
+            const currentIndex = allItems.findIndex(item => item.time === itemTime);
+            
+            // 如果是最后一个项目，检查当前时间是否在该项目时间之后
+            if (currentIndex === allItems.length - 1) {
+                return currentTimeInMinutes >= itemTimeInMinutes;
+            }
+            
+            // 获取下一个项目的时间
+            const nextItem = allItems[currentIndex + 1];
+            if (nextItem) {
+                const [nextHour, nextMinute] = nextItem.time.split(':').map(Number);
+                const nextTimeInMinutes = nextHour * 60 + nextMinute;
+                
+                // 当前时间在这个项目时间和下一个项目时间之间
+                return currentTimeInMinutes >= itemTimeInMinutes && currentTimeInMinutes < nextTimeInMinutes;
+            }
+            
+            // 默认情况：检查是否在项目时间之后的2小时内
+            return currentTimeInMinutes >= itemTimeInMinutes && currentTimeInMinutes < itemTimeInMinutes + 120;
+        }
+
+        // 获取交通方式文本
+        function getTransportTypeText(mode) {
+            const types = {
+                train: '高铁',
+                car: '专车',
+                bus: '巴士',
+                elevator: '电梯',
+                flight: '航班',
+                cablecar: '索道'
+            };
+            return types[mode] || '交通';
+        }
+
+        // Service Worker 注册
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js')
+                    .then(function(registration) {
+                        console.log('Service Worker 注册成功:', registration.scope);
+                    })
+                    .catch(function(error) {
+                        console.log('Service Worker 注册失败:', error);
+                    });
+            });
+        }
+
+        // 添加CSS动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, 20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+            }
+            
+            @keyframes fadeOutDown {
+                from {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, 20px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        let currentTickets = [];
+        let currentTicketIndex = 0;
+
+        function showTicketViewer(tickets) {
+            currentTickets = tickets;
+            currentTicketIndex = 0;
+            updateTicketDisplay();
+            openModal('ticket-viewer-modal');
+            
+            document.getElementById('ticket-prev-btn').onclick = () => {
+                currentTicketIndex = (currentTicketIndex - 1 + currentTickets.length) % currentTickets.length;
+                updateTicketDisplay();
+            };
+            document.getElementById('ticket-next-btn').onclick = () => {
+                currentTicketIndex = (currentTicketIndex + 1) % currentTickets.length;
+                updateTicketDisplay();
+            };
+        }
+
+        function closeTicketViewer() {
+            closeModal('ticket-viewer-modal');
+        }
+
+        function updateTicketDisplay() {
+            const ticket = currentTickets[currentTicketIndex];
+            document.getElementById('ticket-image').src = `https://ly.bufengai.com/hunan/image/张家界/天门山检票码/${ticket.file}`;
+            document.getElementById('ticket-name').textContent = ticket.name;
+        }
+
+        function closePhotoGallery() {
+            document.getElementById('photo-gallery-modal').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
