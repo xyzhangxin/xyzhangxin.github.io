@@ -2417,7 +2417,7 @@
                     <div class="transport-header" onclick="toggleTransportCard('transport-${item.time}')">
                         <div class="transport-info">
                             <span class="transport-type">${getTransportTypeText(item.mode)}</span>
-                            <span class="transport-route">${card.depart.station} → ${card.arrive.station}</span>
+                            <span class="transport-route">${card.depart.station || card.depart.airport} → ${card.arrive.station || card.arrive.airport}</span>
                             <span class="transport-time">${card.depart.time} - ${card.arrive.time}</span>
                         </div>
                         <div class="expand-icon">▼</div>
@@ -3181,7 +3181,7 @@
 
         function updateTicketDisplay() {
             const ticket = currentTickets[currentTicketIndex];
-            document.getElementById('ticket-image').src = `https://ly.bufengai.com/hunan/image/张家界/天门山检票码/${ticket.file}`;
+            document.getElementById('ticket-image').src = `images/tickets/${ticket.file}`;
             document.getElementById('ticket-name').textContent = ticket.name;
         }
 

@@ -2,7 +2,7 @@
   "tripId": "zjj-250830",
   "tripInfo": {
     "title": "张家界7天6晚家庭悠闲之旅",
-    "travelers": ["您(30)", "妻子", "父亲(59)", "母亲(56)", "岳父", "岳母", "女儿(5)"],
+    "travelers": ["成人1", "成人2", "成人3", "成人4", "成人5", "成人6", "儿童1"],
     "dates": "8月30日 - 9月5日",
     "concept": "不赶路，以舒适为先；老小同行，强度有张有弛；该打车就打车、该排队就错峰"
   },
@@ -13,9 +13,9 @@
       "subtitle": "苏州→怀化→凤凰",
       "accommodation": {
         "name": "凤凰古城·沱江镇民俗园",
-        "address": "沱江镇民俗园A6栋3层306",
+        "address": "沱江镇民俗园",
         "tel": "",
-        "doorCode": "5931376",
+        "doorCode": "",
         "lat": null,
         "lng": null
       },
@@ -25,7 +25,7 @@
           "type": "transport",
           "mode": "car",
           "title": "专车出发",
-          "description": "苏州吴中区悦景水湾→苏州北站（滴滴6座专车，约170元）",
+          "description": "江苏省苏州市工业园区苏州中心→苏州北站（滴滴6座专车，约170元）",
           "actions": ["didi"],
           "address": {
             "name": "苏州北站",
@@ -54,7 +54,7 @@
           "type": "transport",
           "mode": "train",
           "title": "G6370 怀化南→凤凰古城站",
-          "description": "女儿免票",
+          "description": "儿童免票",
           "card": {
             "trainNo": "G6370",
             "depart": {"time": "14:47", "station": "怀化南"},
@@ -70,10 +70,10 @@
           "type": "transport",
           "mode": "car",
           "title": "打车到民宿",
-          "description": "凤凰古城站→沱江镇民俗园A6栋3层306（约50元）",
+          "description": "凤凰古城站→沱江镇民俗园（约50元）",
           "actions": ["didi", "amap"],
           "address": {
-            "name": "沱江镇民俗园A6栋3层306",
+            "name": "沱江镇民俗园",
             "lat": null,
             "lng": null
           }
@@ -105,6 +105,7 @@
           "type": "poi",
           "title": "沱江夜景漫步",
           "imageKeyword": "Fenghuang night",
+          "images": ["沱江夜游.jpg"],
           "description": "沿沱江石板路熟悉环境，感受吊脚楼灯火",
           "actions": ["amap"],
           "address": {
@@ -131,9 +132,9 @@
       "subtitle": "凤凰古城全天",
       "accommodation": {
         "name": "凤凰古城·沱江镇民俗园",
-        "address": "沱江镇民俗园A6栋3层306",
+        "address": "沱江镇民俗园",
         "tel": "",
-        "doorCode": "5931376",
+        "doorCode": "",
         "lat": null,
         "lng": null
       },
@@ -155,6 +156,7 @@
           "type": "poi",
           "title": "核心项目·沱江泛舟",
           "imageKeyword": "Fenghuang Ancient Town boat",
+          "images": ["沱江泛舟.jpg"],
           "description": "优先坐船头/尾位，视野无遮挡",
           "actions": ["amap"],
           "tips": {
@@ -168,6 +170,7 @@
           "type": "poi",
           "title": "俯瞰补充·东门城楼/虹桥艺术楼",
           "imageKeyword": "Fenghuang Ancient Town roof",
+          "images": ["虹桥艺术楼.jpg"],
           "description": "二选一或都去（就近、少爬梯）",
           "actions": ["amap"],
           "tips": {
@@ -213,6 +216,7 @@
           "type": "poi",
           "title": "弹性文化·沈从文故居",
           "imageKeyword": "Chinese old house",
+          "images": ["沈从文故居.jpg"],
           "description": "路过有兴致则入（约15-30分钟），不强求",
           "actions": ["amap"]
         },
@@ -240,9 +244,9 @@
       "subtitle": "凤凰→张家界西→武陵源",
       "accommodation": {
         "name": "云几木民宿",
-        "address": "百溪沟小区1栋-2单元-603",
-        "tel": "17711745177",
-        "doorCode": "264243",
+        "address": "武陵源区百溪沟小区",
+        "tel": "",
+        "doorCode": "",
         "lat": null,
         "lng": null
       },
@@ -290,7 +294,7 @@
           "description": "张家界西→武陵源民宿（约40分钟，150元）",
           "actions": ["didi", "amap"],
           "address": {
-            "name": "武陵源区百溪沟小区1栋二单元",
+            "name": "武陵源区百溪沟小区",
             "lat": null,
             "lng": null
           }
@@ -325,9 +329,9 @@
       "subtitle": "袁家界/天子山",
       "accommodation": {
         "name": "云几木民宿",
-        "address": "百溪沟小区1栋-2单元-603",
-        "tel": "17711745177",
-        "doorCode": "264243",
+        "address": "武陵源区百溪沟小区",
+        "tel": "",
+        "doorCode": "",
         "lat": null,
         "lng": null
       },
@@ -554,9 +558,9 @@
       "subtitle": "十里画廊/魅力湘西演出",
       "accommodation": {
         "name": "云几木民宿",
-        "address": "百溪沟小区1栋-2单元-603",
-        "tel": "17711745177",
-        "doorCode": "264243",
+        "address": "武陵源区百溪沟小区",
+        "tel": "",
+        "doorCode": "",
         "lat": null,
         "lng": null
       },
@@ -643,11 +647,11 @@
       "title": "Day 6 天门洞开，奔赴星城",
       "subtitle": "武陵源→天门山→张家界西→长沙",
       "tickets": [
-        { "name": "张鑫", "file": "张鑫.png" },
-        { "name": "查青莲", "file": "查青莲.png" },
-        { "name": "满小丁", "file": "满小丁.png" },
-        { "name": "满晓雯", "file": "满晓雯.png" },
-        { "name": "金根凤", "file": "金根凤.png" }
+        { "name": "1", "file": "1.png" },
+        { "name": "2", "file": "2.png" },
+        { "name": "3", "file": "3.png" },
+        { "name": "4", "file": "4.png" },
+        { "name": "5", "file": "5.png" }
       ],
       "accommodation": {
         "name": "SKIL世纪天际 高空酒店（长沙五一广场IFS国金中心点）",
@@ -826,6 +830,8 @@
           "time": "10:30",
           "type": "poi",
           "title": "橘子洲游览",
+          "imageKeyword": "Changsha Orange Isle",
+          "images": ["橘子洲.jpg"],
           "description": "建议乘观光车环线、雕像广场合影",
           "actions": ["amap"],
           "tips": {
@@ -838,6 +844,8 @@
           "time": "12:30",
           "type": "poi",
           "title": "太平老街",
+          "imageKeyword": "Changsha Taiping Street",
+          "images": ["太平老街.jpg"],
           "description": "边逛边吃：火宫殿小吃、文和友臭豆腐、糖油粑粑、茶颜悦色等；伴手礼集中采购",
           "actions": ["amap"],
           "tips": {
@@ -872,7 +880,7 @@
             "duration": "1小时50分",
             "terminal": "",
             "gate": "",
-            "seat": "46A张云舒, 45C查青莲, 45B满晓雯, 45A张鑫, 46C满小丁, 46B金根凤",
+            "seat": "46A, 45C, 45B, 45A, 46C, 46B",
             "pnr": ""
           },
           "warnings": {
