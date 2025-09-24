@@ -320,6 +320,19 @@
             "title": "重要提醒/避坑",
             "content": "张家界西站出站勿随意跟'拉客'，走官方出租/网约车；明早入园二维码/证件先截屏"
           }
+        },
+        {
+          "time": "18:30",
+          "type": "transport",
+          "mode": "car",
+          "title": "一嗨租车取车",
+          "description": "张家界西站站内一嗨租车取大众宝来，租期至9月4日15:30（租车费316元）",
+          "actions": ["amap"],
+          "tips": {
+            "type": "transport",
+            "title": "租车信息",
+            "content": "车型：大众宝来；租期：9月1日18:30-9月4日15:30；费用：租车316元+油费61.62元+停车费34元=411.62元"
+          }
         }
       ]
     },
@@ -744,10 +757,15 @@
           "actions": ["amap"]
         },
         {
-          "time": "13:40",
+          "time": "15:30",
           "type": "note",
           "title": "还车办理",
-          "description": "张家界西站一嗨租车还车，办理相关手续，进站候车"
+          "description": "张家界西站站内一嗨租车还大众宝来，办理相关手续，进站候车",
+          "tips": {
+            "type": "transport",
+            "title": "租车费用明细",
+            "content": "大众宝来总费用：租车316元+油费61.62元+停车费34元=411.62元"
+          }
         },
         {
           "time": "16:00",
@@ -766,12 +784,17 @@
           }
         },
         {
-          "time": "18:20",
+          "time": "18:00",
           "type": "transport",
           "mode": "car",
-          "title": "取车",
-          "description": "长沙站一嗨租车取车，办理租车手续",
-          "actions": ["amap"]
+          "title": "一嗨租车取车",
+          "description": "长沙火车站店一嗨租车取广汽传祺新M8，租期至9月5日17:00（租车&保险费339元）",
+          "actions": ["amap"],
+          "tips": {
+            "type": "transport",
+            "title": "租车信息",
+            "content": "车型：广汽传祺新M8；租期：9月4日18:00-9月5日17:00；费用：租车&保险339元+油费55.23元+停车费40元=434.23元"
+          }
         },
         {
           "time": "19:00",
@@ -808,7 +831,7 @@
     },
     {
       "date": "2025-09-05",
-      "title": "Day 7 星城漫游，包车返程",
+      "title": "Day 7 星城漫游，自驾返程",
       "subtitle": "长沙→机场",
       "accommodation": null,
       "items": [
@@ -822,8 +845,8 @@
           "time": "10:00",
           "type": "transport",
           "mode": "car",
-          "title": "出发",
-          "description": "酒店→橘子洲（包车约300元/全天，含送机）",
+          "title": "自驾出发",
+          "description": "酒店→橘子洲（自驾广汽传祺新M8）",
           "actions": ["amap"]
         },
         {
@@ -858,13 +881,31 @@
           "time": "15:45",
           "type": "transport",
           "mode": "car",
-          "title": "出发",
+          "title": "自驾前往机场",
           "description": "太平老街→长沙黄花机场（约45-60分钟）"
         },
         {
           "time": "16:45",
           "type": "note",
           "title": "到达机场",
+          "description": "到达黄花机场，准备办理还车手续"
+        },
+        {
+          "time": "17:00",
+          "type": "transport",
+          "mode": "car",
+          "title": "一嗨租车还车",
+          "description": "黄花机场店站内还广汽传祺新M8，办理还车手续",
+          "tips": {
+            "type": "transport",
+            "title": "租车费用明细",
+            "content": "广汽传祺新M8总费用：租车&保险339元+油费55.23元+停车费40元=434.23元"
+          }
+        },
+        {
+          "time": "17:15",
+          "type": "note",
+          "title": "值机候机",
           "description": "办理值机、托运，从容候机"
         },
         {
