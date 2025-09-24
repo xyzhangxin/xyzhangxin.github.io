@@ -1844,31 +1844,104 @@
 
         /* 检票码查看器样式 */
         .ticket-viewer-content {
-            max-width: 90vw;
-            width: 380px;
-            background: #f5f7fa;
+            max-width: min(90vw, 500px);
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
         }
         .ticket-viewer-body {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 16px;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            min-height: 300px;
         }
         .ticket-image-container {
             text-align: center;
+            width: 100%;
+            max-width: 280px;
+            padding: 0 50px; /* 为左右按钮留空间 */
         }
         #ticket-image {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            max-height: 60vh;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            max-width: 280px;
+            max-height: min(280px, 50vh);
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        #ticket-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
         }
         #ticket-name {
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 600;
             color: #333;
-            margin-top: 12px;
+            margin-top: 16px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 检票码导航按钮重新定位 */
+        .ticket-viewer-body .photo-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #e0e0e0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .ticket-viewer-body .photo-nav-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .ticket-viewer-body .photo-prev {
+            left: 10px;
+        }
+        .ticket-viewer-body .photo-next {
+            right: 10px;
+        }
+        
+        /* 响应式优化 */
+        @media (max-width: 480px) {
+            .ticket-viewer-content {
+                max-width: 95vw;
+                margin: 20px;
+            }
+            .ticket-image-container {
+                padding: 0 35px;
+            }
+            #ticket-image {
+                max-height: 40vh;
+            }
+            #ticket-name {
+                font-size: 16px;
+            }
+            .ticket-viewer-body .photo-nav-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+            .ticket-viewer-body .photo-prev {
+                left: 5px;
+            }
+            .ticket-viewer-body .photo-next {
+                right: 5px;
+            }
         }
     </style>
 </head>
@@ -2230,7 +2303,7 @@
                 const accommodationBtn = document.createElement('button');
                 accommodationBtn.className = 'day-action-btn';
                 accommodationBtn.innerHTML = '🏨 住宿信息';
-                accommodationBtn.onclick = () => showAccommodation();
+                accommodationBtn.onclick = () => showAccommodation(day.date);
                 dayHeader.appendChild(accommodationBtn);
             }
 
@@ -2261,7 +2334,7 @@
             if (item.type === 'poi') {
                 if (item.images && item.images.length > 0) {
                     // 使用服务器图片
-                    const imageUrl = `https://ly.bufengai.com/hunan/image/张家界/${item.images[0]}`;
+                    const imageUrl = `images/${item.images[0]}`;
                     content += `<img class="poi-image" src="${imageUrl}" alt="${item.title}" loading="lazy" onclick="openPoiGallery('${item.title}', ${JSON.stringify(item.images).replace(/"/g, '&quot;')})">`;
                 } else {
                     // 备用：使用在线图片
@@ -2279,7 +2352,7 @@
             if (item.type === 'poi' && item.photoReference && item.images) {
                 const poiPhotos = item.images.map((file, index) => ({
                     name: `${item.title} - 图片 ${index + 1}`,
-                    src: `https://ly.bufengai.com/hunan/image/张家界/${file}`
+                    src: `images/${file}`
                 }));
                 content += createPoiPhotoReferenceCard(item.photoReference.title, item.photoReference.description, poiPhotos);
             }
@@ -2345,7 +2418,7 @@
         function createAccommodationCard(accommodation) {
             if (!accommodation) return '';
             
-            const navigationAddress = accommodation.name === '云几木民宿' ? '武陵源区百溪沟小区1栋二单元' : accommodation.address;
+            const navigationAddress = accommodation.name === '云几木民宿' ? '武陵源区百溪沟小区' : accommodation.address;
             const cardId = `accommodation-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
             
             return `
@@ -2656,17 +2729,17 @@
         }
 
         // 显示住宿信息
-        function showAccommodation() {
-            // 获取当前选择的日期，如果没有选择则使用今天
+        function showAccommodation(specificDate = null) {
+            // 获取指定日期、当前选择的日期，或行程第一天作为默认
             const selector = document.getElementById('date-selector');
-            const selectedDate = selector.value || new Date().toISOString().split('T')[0];
+            const selectedDate = specificDate || selector.value || tripData.days[0].date;
             const selectedData = tripData.days.find(day => day.date === selectedDate);
             
             const content = document.getElementById('accommodation-content');
             
             if (selectedData && selectedData.accommodation) {
                 const acc = selectedData.accommodation;
-                const navigationAddress = acc.name === '云几木民宿' ? '武陵源区百溪沟小区1栋二单元' : acc.address;
+                const navigationAddress = acc.name === '云几木民宿' ? '武陵源区百溪沟小区' : acc.address;
                 
                 content.innerHTML = `
                     <div class="accommodation-modal-info">
@@ -2955,7 +3028,7 @@
             // 将文件名数组转换为照片对象数组
             const photos = imageFiles.map((file, index) => ({
                 name: `${title} - 图片 ${index + 1}`,
-                src: `https://ly.bufengai.com/hunan/image/张家界/${file}`
+                src: `images/${file}`
             }));
             
             openPhotoGallery(photos, 0);

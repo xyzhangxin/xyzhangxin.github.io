@@ -14,8 +14,8 @@
       "accommodation": {
         "name": "凤凰古城·沱江镇民俗园",
         "address": "沱江镇民俗园",
-        "tel": "",
-        "doorCode": "",
+        "tel": "联系电话",
+        "doorCode": "门禁密码",
         "lat": null,
         "lng": null
       },
@@ -133,8 +133,8 @@
       "accommodation": {
         "name": "凤凰古城·沱江镇民俗园",
         "address": "沱江镇民俗园",
-        "tel": "",
-        "doorCode": "",
+        "tel": "联系电话",
+        "doorCode": "门禁密码",
         "lat": null,
         "lng": null
       },
@@ -245,8 +245,8 @@
       "accommodation": {
         "name": "云几木民宿",
         "address": "武陵源区百溪沟小区",
-        "tel": "",
-        "doorCode": "",
+        "tel": "联系电话",
+        "doorCode": "门禁密码",
         "lat": null,
         "lng": null
       },
@@ -330,8 +330,8 @@
       "accommodation": {
         "name": "云几木民宿",
         "address": "武陵源区百溪沟小区",
-        "tel": "",
-        "doorCode": "",
+        "tel": "联系电话",
+        "doorCode": "门禁密码",
         "lat": null,
         "lng": null
       },
@@ -559,8 +559,8 @@
       "accommodation": {
         "name": "云几木民宿",
         "address": "武陵源区百溪沟小区",
-        "tel": "",
-        "doorCode": "",
+        "tel": "联系电话",
+        "doorCode": "门禁密码",
         "lat": null,
         "lng": null
       },
@@ -656,7 +656,7 @@
       "accommodation": {
         "name": "SKIL世纪天际 高空酒店（长沙五一广场IFS国金中心点）",
         "address": "长沙市芙蓉区五一大道389号国金中心",
-        "tel": "",
+        "tel": "联系电话",
         "lat": null,
         "lng": null
       },
