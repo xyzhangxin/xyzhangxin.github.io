@@ -287,12 +287,12 @@
           }
         },
         {
-          "time": "13:50",
+          "time": "19:00",
           "type": "transport",
           "mode": "car",
-          "title": "打车到民宿",
-          "description": "张家界西→武陵源民宿（约40分钟，150元）",
-          "actions": ["didi", "amap"],
+          "title": "自驾到民宿",
+          "description": "取车后自驾张家界西→武陵源民宿（约40分钟，使用一嗨租车大众宝来）",
+          "actions": ["amap"],
           "address": {
             "name": "武陵源区百溪沟小区",
             "lat": null,
@@ -359,9 +359,9 @@
           "time": "08:45",
           "type": "transport",
           "mode": "car",
-          "title": "出发到景区",
-          "description": "打车→武陵源标志门（门票站）约15分钟",
-          "actions": ["didi", "amap"],
+          "title": "自驾到景区",
+          "description": "自驾民宿→武陵源标志门（门票站）约15分钟",
+          "actions": ["amap"],
           "address": {
             "name": "武陵源标志门",
             "lat": null,
@@ -588,9 +588,9 @@
           "time": "10:00",
           "type": "transport",
           "mode": "car",
-          "title": "出发",
-          "description": "打车→武陵源门票站",
-          "actions": ["didi", "amap"]
+          "title": "自驾出发",
+          "description": "自驾民宿→武陵源门票站",
+          "actions": ["amap"]
         },
         {
           "time": "10:30",
@@ -649,9 +649,9 @@
           "time": "21:00",
           "type": "transport",
           "mode": "car",
-          "title": "返程",
-          "description": "打车回民宿休息",
-          "actions": ["didi"]
+          "title": "自驾返回",
+          "description": "自驾魅力湘西大剧院→民宿休息",
+          "actions": ["amap"]
         }
       ]
     },
